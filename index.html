@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>TF-Stream Explorer</title>
+
+  <!-- PWA manifest et icônes -->
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/ixgmht.jpg" />
+  <link rel="apple-touch-icon" href="https://files.catbox.moe/ixgmht.jpg" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Font Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- === Adstera BANNIÈRE (300×250) === -->
+  <script async src="https://adserver.adsterra.com/banner.php?key=537eddf372aea1f2944a98fcd202d302&size=300x250"></script>
+  <!-- === Adstera NATIVE === -->
+  <script async src="https://adserver.adsterra.com/native.php?key=537eddf372aea1f2944a98fcd202d302"></script>
+  <!-- === Adstera PUSH === -->
+  <script async src="https://adserver.adsterra.com/push.js?key=537eddf372aea1f2944a98fcd202d302"></script>
+  <!-- === Adstera POPUNDER === -->
+  <script>
+    atOptions = { key:'537eddf372aea1f2944a98fcd202d302', format:'popunder', height:1, width:1, params:{} };
+    document.write('<scr'+'ipt src="https://www.profitableratecpm.com/avzy4dviv/invoke.js"><\\/scr'+'ipt>');
+  </script>
+  <!-- === Adstera VIDEO PRE-ROLL === -->
+  <script async src="https://adserver.adsterra.com/video.php?key=537eddf372aea1f2944a98fcd202d302"></script>
+
+  <style>
+    body { margin:0; background:#000; color:#fff; font-family:'Roboto',sans-serif; overflow-x:hidden; padding-bottom:60px; }
+    .header{padding:20px;text-align:center;position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(0,0,0,0.7);z-index:10;}
+    .logo{font-size:28px;font-weight:bold;background:linear-gradient(90deg,#fff,#000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+    .search-container{display:flex;justify-content:center;padding:10px 20px;}
+    .search-box{width:100%;max-width:500px;background:#1c1c1e;border:none;padding:12px 20px;border-radius:15px;color:#fff;font-size:16px;box-shadow:inset 0 0 5px #000;outline:none;}
+    #explorerView{padding:20px;max-height:calc(100vh-120px);overflow-y:auto;background:#000;-webkit-overflow-scrolling:touch;}
+    .post-card{background:#111;border-radius:15px;padding:15px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.7);}
+    .post-name{font-weight:700;font-size:17px;margin-bottom:8px;color:#fff;}
+    .post-text{font-size:15px;color:#ddd;margin-bottom:10px;white-space:pre-wrap;}
+    .post-desc{font-size:13px;color:#ccc;margin-bottom:10px;}
+    .post-thumb-container, .video-inline-container{position:relative;width:100%;border-radius:12px;overflow:hidden;margin-bottom:10px;cursor:pointer;}
+    .post-thumb, video{width:100%;object-fit:cover;display:block;border-radius:12px;}
+    .social-section{margin-top:10px;padding-top:10px;border-top:1px solid #333;display:flex;justify-content:center;gap:15px;}
+    .social-section img{width:40px;height:40px;}
+    /* Pré-roll overlay */
+    .ad-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);display:none;justify-content:center;align-items:center;z-index:1000;}
+    .ad-container{position:relative;max-width:90%;width:100%;height:80%;background:#111;padding:0;border-radius:10px;overflow:hidden;}
+    .ad-container iframe{width:100%;height:100%;border:none;}
+    .skip-btn{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.5);border:none;color:#fff;padding:8px 12px;border-radius:6px;cursor:pointer;display:none;}
+    /* Mini rotating ad */
+    #miniAd{position:fixed;bottom:10px;left:10px;width:120px;height:90px;background:#111;border:1px solid #444;border-radius:8px;overflow:hidden;z-index:1001;}
+    #miniAd iframe{width:100%;height:100%;border:none;}
+    #miniAd button{position:absolute;top:2px;right:2px;background:rgba(0,0,0,0.5);border:none;color:#fff;font-size:12px;cursor:pointer;padding:2px 4px;}
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">TF-Stream</div>
+    <div class="search-container">
+      <input class="search-box" placeholder="Rechèch..." oninput="filterSearch(this.value)">
+    </div>
+  </div>
+
+  <div id="explorerView"></div>
+
+  <!-- Pré-roll vidéo -->
+  <div id="adOverlay" class="ad-overlay">
+    <div class="ad-container">
+      <iframe id="prerollFrame" src="" allow="autoplay; fullscreen"></iframe>
+      <button id="skipBtn" class="skip-btn" onclick="closeAd()">Ignorer la pub</button>
+    </div>
+  </div>
+
+  <!-- Mini rotating ad -->
+  <div id="miniAd">
+    <button id="closeMiniAd">×</button>
+    <iframe id="miniAdFrame" src="" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    const AD_REDIRECT_URL = "https://www.profitableratecpm.com/avzy4dviv?key=537eddf372aea1f2944a98fcd202d302";
+    let adCallback = null, skipTimeout;
+
+    // Mini ads URLs
+    const miniAds = [
+      AD_REDIRECT_URL,
+      /* add more keys here if desired */
+    ];
+    let miniIndex = 0;
+    function showNextMiniAd() {
+      document.getElementById("miniAdFrame").src = miniAds[miniIndex];
+      miniIndex = (miniIndex + 1) % miniAds.length;
+    }
+    document.getElementById("closeMiniAd").onclick = showNextMiniAd;
+    setInterval(showNextMiniAd, 15000);
+    showNextMiniAd();
+
+    // Load JSON and display posts
+    let allData = [];
+    fetch("index.json")
+      .then(r => r.json())
+      .then(files => Promise.all(files.map(f => fetch(f).then(r => r.json()))))
+      .then(jsons => {
+        jsons.forEach(d => Array.isArray(d) ? allData.push(...d) : allData.push(d));
+        displayExplorer(allData);
+      });
+
+    function filterSearch(val) {
+      const txt = val.toLowerCase();
+      displayExplorer(
+        allData.filter(p =>
+          p.Catégorie?.toLowerCase() === "poste" &&
+          ((p.Name||p.Texte||"").toLowerCase().includes(txt) ||
+           (p.Description||"").toLowerCase().includes(txt))
+        )
+      );
+    }
+
+    function displayExplorer(data) {
+      const ex = document.getElementById("explorerView");
+      ex.innerHTML = "";
+      data.forEach((post, i) => {
+        if (post.Catégorie?.toLowerCase() !== "poste") return;
+
+        const card = document.createElement("div");
+        card.className = "post-card";
+        card.innerHTML = `
+          <div class="post-name">${post.Name||post.Texte||""}</div>
+          <div class="post-text">${post.Bio||post.Info||""}</div>
+        `;
+
+        const thumbCon = document.createElement("div");
+        thumbCon.className = "post-thumb-container";
+        const img = document.createElement("img");
+        img.className = "post-thumb";
+        img.src = post["Url Thumb"]||"";
+
+        img.addEventListener("click", () => {
+          const vidId = post.id||i;
+          const src = post.Previously||post.video||"";
+          if (!localStorage.getItem("ad_shown_" + vidId)) {
+            adCallback = () => playVideo(src, thumbCon);
+            showAd();
+            localStorage.setItem("ad_shown_" + vidId, "1");
+          } else {
+            playVideo(src, thumbCon);
+          }
+        });
+
+        thumbCon.appendChild(img);
+        card.appendChild(thumbCon);
+
+        const desc = document.createElement("div");
+        desc.className = "post-desc";
+        desc.textContent = post.Description||"";
+        card.appendChild(desc);
+
+        ex.appendChild(card);
+      });
+      displaySocialLinks();
+    }
+
+    function playVideo(src, thumbCon) {
+      const videoEl = document.createElement("video");
+      videoEl.src = src;
+      videoEl.controls = true;
+      videoEl.autoplay = true;
+      videoEl.playsInline = true;
+      videoEl.setAttribute("controlsList", "nodownload");
+      const videoCon = document.createElement("div");
+      videoCon.className = "video-inline-container";
+      videoCon.appendChild(videoEl);
+      thumbCon.replaceWith(videoCon);
+    }
+
+    function displaySocialLinks() {
+      const c = document.getElementById("explorerView"),
+            s = document.createElement("div");
+      s.className = "social-section";
+      s.innerHTML = `
+        <a href="https://facebook.com" target="_blank"><img src="https://img.icons8.com/?size=100&id=118467&format=png&color=ffffff"/></a>
+        <a href="mailto:tfstream7@gmail.com"><img src="https://img.icons8.com/?size=100&id=Y2GfpkgYNp42&format=png&color=ffffff"/></a>
+        <a href="https://whatsapp.com" target="_blank"><img src="https://img.icons8.com/?size=100&id=16733&format=png&color=ffffff"/></a>
+        <a href="https://instagram.com" target="_blank"><img src="https://img.icons8.com/?size=100&id=32309&format=png&color=ffffff"/></a>
+        <a href="https://youtube.com" target="_blank"><img src="https://img.icons8.com/?size=100&id=37326&format=png&color=ffffff"/></a>
+      `;
+      c.appendChild(s);
+    }
+
+    function showAd() {
+      const ov = document.getElementById("adOverlay"),
+            fr = document.getElementById("prerollFrame"),
+            sk = document.getElementById("skipBtn");
+      fr.src = AD_REDIRECT_URL;
+      ov.style.display = "flex";
+      sk.style.display = "none";
+      clearTimeout(skipTimeout);
+      skipTimeout = setTimeout(() => sk.style.display = "block", 7000);
+    }
+
+    function closeAd() {
+      document.getElementById("adOverlay").style.display = "none";
+      clearTimeout(skipTimeout);
+      if (typeof adCallback === "function") adCallback();
+    }
+  </script>
+
+</body>
+</html>
