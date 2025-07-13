@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html><html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
-  <title>TF-Tout</title>
-
-  <!-- PWA manifest et icônes -->
-  <link rel="manifest" href="manifest.json" />
+  <title>TF-Stream Explorer</title>  <!-- PWA manifest et icônes -->  <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/ixgmht.jpg" />
   <link rel="apple-touch-icon" href="https://files.catbox.moe/ixgmht.jpg" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-  <!-- Font Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- === Adstera BANNIÈRE (300×250) === -->
-  <script async src="https://adserver.adsterra.com/banner.php?key=537eddf372aea1f2944a98fcd202d302&size=300x250"></script>
-  <!-- === Adstera NATIVE === -->
-  <script async src="https://adserver.adsterra.com/native.php?key=537eddf372aea1f2944a98fcd202d302"></script>
-  <!-- === Adstera PUSH === -->
-  <script async src="https://adserver.adsterra.com/push.js?key=537eddf372aea1f2944a98fcd202d302"></script>
-  <!-- === Adstera POPUNDER === -->
-  <script>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />  <!-- Font Roboto -->  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />  <!-- === Adstera BANNIÈRE (300×250) === -->  <script async src="https://adserver.adsterra.com/banner.php?key=537eddf372aea1f2944a98fcd202d302&size=300x250"></script>  <!-- === Adstera NATIVE === -->  <script async src="https://adserver.adsterra.com/native.php?key=537eddf372aea1f2944a98fcd202d302"></script>  <!-- === Adstera PUSH === -->  <script async src="https://adserver.adsterra.com/push.js?key=537eddf372aea1f2944a98fcd202d302"></script>  <!-- === Adstera POPUNDER === -->  <script>
     atOptions = { key:'537eddf372aea1f2944a98fcd202d302', format:'popunder', height:1, width:1, params:{} };
-    document.write('<scr'+'ipt src="https://www.profitableratecpm.com/avzy4dviv/invoke.js"><\\/scr'+'ipt>');
-  </script>
-  <!-- === Adstera VIDEO PRE-ROLL === -->
-  <script async src="https://adserver.adsterra.com/video.php?key=537eddf372aea1f2944a98fcd202d302"></script>
-
-  <style>
+    document.write('<scr'+'ipt src="https://www.profitableratecpm.com/avzy4dviv/invoke.js"><\/scr'+'ipt>');
+  </script>  <!-- === Adstera VIDEO PRE-ROLL === -->  <script async src="https://adserver.adsterra.com/video.php?key=537eddf372aea1f2944a98fcd202d302"></script>  <style>
     body { margin:0; background:#000; color:#fff; font-family:'Roboto',sans-serif; overflow-x:hidden; padding-bottom:60px; }
     .header{padding:20px;text-align:center;position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(0,0,0,0.7);z-index:10;}
     .logo{font-size:28px;font-weight:bold;background:linear-gradient(90deg,#fff,#000);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
@@ -55,41 +35,27 @@
     #miniAd{position:fixed;bottom:10px;left:10px;width:120px;height:90px;background:#111;border:1px solid #444;border-radius:8px;overflow:hidden;z-index:1001;}
     #miniAd iframe{width:100%;height:100%;border:none;}
     #miniAd button{position:absolute;top:2px;right:2px;background:rgba(0,0,0,0.5);border:none;color:#fff;font-size:12px;cursor:pointer;padding:2px 4px;}
-  </style>
-</head>
-<body>
-
-  <div class="header">
-    <div class="logo">TF-Tout</div>
+  </style></head>
+<body>  <div class="header">
+    <div class="logo">TF-Stream</div>
     <div class="search-container">
       <input class="search-box" placeholder="Rechèch..." oninput="filterSearch(this.value)">
     </div>
-  </div>
-
-  <div id="explorerView"></div>
-
-  <!-- Pré-roll vidéo -->
-  <div id="adOverlay" class="ad-overlay">
+  </div>  <div id="explorerView"></div>  <!-- Pré-roll vidéo -->  <div id="adOverlay" class="ad-overlay">
     <div class="ad-container">
       <iframe id="prerollFrame" src="" allow="autoplay; fullscreen"></iframe>
       <button id="skipBtn" class="skip-btn" onclick="closeAd()">Ignorer la pub</button>
     </div>
-  </div>
-
-  <!-- Mini rotating ad -->
-  <div id="miniAd">
+  </div>  <!-- Mini rotating ad -->  <div id="miniAd">
     <button id="closeMiniAd">×</button>
     <iframe id="miniAdFrame" src="" allowfullscreen></iframe>
-  </div>
-
-  <script>
+  </div>  <script>
     const AD_REDIRECT_URL = "https://www.profitableratecpm.com/avzy4dviv?key=537eddf372aea1f2944a98fcd202d302";
     let adCallback = null, skipTimeout;
 
     // Mini ads URLs
     const miniAds = [
       AD_REDIRECT_URL,
-      /* add more keys here if desired */
     ];
     let miniIndex = 0;
     function showNextMiniAd() {
@@ -141,15 +107,9 @@
         img.src = post["Url Thumb"]||"";
 
         img.addEventListener("click", () => {
-          const vidId = post.id||i;
           const src = post.Previously||post.video||"";
-          if (!localStorage.getItem("ad_shown_" + vidId)) {
-            adCallback = () => playVideo(src, thumbCon);
-            showAd();
-            localStorage.setItem("ad_shown_" + vidId, "1");
-          } else {
-            playVideo(src, thumbCon);
-          }
+          adCallback = () => playVideo(src, thumbCon);
+          showAd();
         });
 
         thumbCon.appendChild(img);
@@ -208,7 +168,5 @@
       clearTimeout(skipTimeout);
       if (typeof adCallback === "function") adCallback();
     }
-  </script>
-
-</body>
+  </script></body>
 </html>
