@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#000000" />
   <title>Adam_D'H7</title>
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/ixgmht.jpg" />
-  <link rel="apple-touch-icon" href="https://files.catbox.moe/ixgmht.jpg" />
+  <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg" />
+  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -174,7 +174,7 @@
       }).catch(err => {
         console.error("Erreur chargement JSON:", err);
         const ex = document.getElementById("explorerView");
-        ex.innerHTML = '<div style="color:#999;padding:20px;text-align:center">Pa kapab chaje kontni (index.json).</div>';
+        ex.innerHTML = '<div style="color:#999;padding:20px;text-align:center"></div>';
       });
 
     function filterSearch(val){
@@ -376,7 +376,7 @@
       ov.setAttribute("aria-hidden","false");
       sk.style.display = "none";
       clearTimeout(skipTimeout);
-      skipTimeout = setTimeout(() => sk.style.display = "block", 7000);
+      skipTimeout = setTimeout(() => sk.style.display = "block", 2000);
     }
 
     // close pre-roll and then trigger adCallback
