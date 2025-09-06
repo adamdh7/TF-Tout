@@ -4,56 +4,56 @@
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFFF",
   "icons": [
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "72x72",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "96x96",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "128x128",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "144x144",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "152x152",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "256x256",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "384x384",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     },
     {
-      "src": "https://files.catbox.moe/l1irsc.jpg",
+      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "maskable"
