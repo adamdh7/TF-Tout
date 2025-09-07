@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
   <title>Adam_D'H7</title>
+
+  <!-- Font Awesome pour icônes sociales -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/jpeg" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg" />
-  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757201551/tf-stream-url/IMG-20250906-WA0030_obkn9n.jpg" />
+  <link rel="icon" type="image/jpeg" href="https://files.catbox.moe/ixgmht.jpg" />
+  <link rel="apple-touch-icon" href="https://files.catbox.moe/ixgmht.jpg" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -45,30 +49,27 @@
     #explorerView{ padding:18px; max-height:calc(100vh - 120px); overflow-y:auto; background:#000; -webkit-overflow-scrolling:touch; }
 
     .post-card{ background:#111; border-radius:14px; padding:14px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.7); }
-    .post-name{ font-weight:700; font-size:16px; margin-bottom:8px; color:#fff; text-align:left; }
+    .post-name{ font-weight:700; font-size:16px; margin:8px 0; color:#fff; text-align:left; }
     .post-text{ font-size:14px; color:#ddd; margin-bottom:10px; white-space:pre-wrap; text-align:left; }
     .post-desc{ font-size:13px; color:#ccc; margin-top:8px; text-align:left; }
 
-    /* WRAPPER pou santre card men kite card adapte ak media */
     .media-wrap{ text-align:center; margin: 0 0 10px 0; }
 
-    /* Card: INLINE-BLOCK pou li pran dimansyon media a */
     .post-thumb-container {
       position:relative;
-      display:inline-block;            /* ADAPTASYON: card pran dimansyon kontni an */
+      display:inline-block;
       box-sizing:border-box;
-      max-width:var(--card-max-width); /* limite lajè */
-      width:auto;                      /* pa fòse 100% */
+      max-width:var(--card-max-width);
+      width:auto;
       background:#000;
       border-radius:12px;
       overflow:hidden;
-      padding:0;                       /* media dwe menm dimansyon avèk card la */
+      padding:0;
       box-shadow: inset 0 0 18px rgba(0,0,0,0.45), 0 6px 18px rgba(0,0,0,0.6);
       min-height:var(--card-min-height);
       max-height:var(--card-max-height);
     }
 
-    /* Media: pa etann imaj natirèl la, men li responsif si tw gwo */
     .post-thumb,
     .post-thumb img,
     .post-thumb video,
@@ -76,8 +77,8 @@
     .video-inline-container > img,
     .video-inline-container > video {
       display:block;
-      width:auto;                      /* pa fòse li plen card la si li pi piti */
-      max-width:100%;                  /* si li tw gwo li pral redwi pou rantre */
+      width:auto;
+      max-width:100%;
       height:auto;
       max-height:calc(var(--card-max-height));
       object-fit:contain;
@@ -85,21 +86,29 @@
       border-radius:0;
     }
 
-    /* iframe/videoplayer se blòk, n ap ajiste w/h via JS pou youtube */
     .post-thumb iframe, .post-thumb video { display:block; width:100%; height:auto; }
 
-    .social-section{ margin-top:10px; padding-top:10px; border-top:1px solid #333; display:flex; justify-content:center; gap:15px; flex-wrap:wrap; }
-    .social-section img{ width:40px; height:40px; filter:invert(1); }
+    .social-section{
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px solid #333;
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+    .social-section a{ color:#fff; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:10px; background:rgba(255,255,255,0.03); }
+    .social-section a:hover{ background:rgba(255,255,255,0.06); transform:translateY(-2px); transition:all .15s ease; }
+    .social-section i{ font-size:18px; }
 
     .ad-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; justify-content:center; align-items:center; z-index:1000; }
     .ad-container{ position:relative; max-width:90%; width:100%; height:80%; background:#111; padding:0; border-radius:10px; overflow:hidden; }
     .ad-container iframe{ width:100%; height:100%; border:none; }
     .skip-btn{ position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.5); border:none; color:#fff; padding:8px 12px; border-radius:6px; cursor:pointer; display:none; z-index:1001; }
 
-    /* mini ad clickable */
     #miniAd{ position:fixed; bottom:10px; left:10px; width:120px; height:90px; background:#111; border:1px solid #444; border-radius:8px; overflow:hidden; z-index:1001; cursor:pointer; }
     #miniAd iframe{ width:100%; height:100%; border:none; pointer-events:none; }
-    #miniAd button{ position:absolute; top:2px; right:2px; background:rgba(0,0,0,0.5); border:none; color:#fff; font-size:12px; cursor:pointer; padding:2px 4px; }
+    #miniAd button{ position:absolute; top:2px; right:2px; background:rgba(0,0,0,0.5); border:none; color:#fff; font-size:12px; cursor:pointer; padding:2px 4px; border-radius:4px; }
 
     @media (max-width:600px){
       :root{ --card-max-width:100%; --card-max-height:70vh; --card-min-height:80px; }
@@ -111,11 +120,11 @@
   <div class="header">
     <div class="logo">Adam_D'H7</div>
     <div class="search-container">
-      <input class="search-box" placeholder="Rechèch..." oninput="filterSearch(this.value)">
+      <input id="searchBox" class="search-box" placeholder="Rechèch..." oninput="filterSearch(this.value)">
     </div>
   </div>
 
-  <div id="explorerView"></div>
+  <div id="explorerView" role="main" aria-live="polite"></div>
 
   <!-- Pré-roll vidéo (overlay) -->
   <div id="adOverlay" class="ad-overlay" aria-hidden="true">
@@ -135,7 +144,7 @@
     const AD_REDIRECT_URL = "https://www.profitableratecpm.com/avzy4dviv?key=537eddf372aea1f2944a98fcd202d302";
     let adCallback = null, skipTimeout;
 
-    // miniAd rotation (1 link for now)
+    // miniAd rotation
     const miniAds = [ AD_REDIRECT_URL ];
     let miniIndex = 0;
     function showNextMiniAd(){
@@ -162,30 +171,31 @@
       return array;
     }
 
-    // index.json should contain an array of filenames, e.g. ["poste.json","poste2.json"]
+    // Chargement: index.json doit contenir la liste des fichiers (ex: ["poste.json","poste2.json"])
     fetch("index.json")
       .then(r => r.json())
       .then(files => Promise.all(files.map(f => fetch(f).then(r => r.json()))))
       .then(jsons => {
         jsons.forEach(d => Array.isArray(d) ? allData.push(...d) : allData.push(d));
-        // shuffle all posts once after load so order is random on each refresh
-        shuffle(allData);
+        shuffle(allData); // mélange pour ordre aléatoire à chaque refresh
         displayExplorer(allData);
       }).catch(err => {
         console.error("Erreur chargement JSON:", err);
         const ex = document.getElementById("explorerView");
-        ex.innerHTML = '<div style="color:#999;padding:20px;text-align:center"></div>';
+        ex.innerHTML = '<div style="color:#999;padding:20px;text-align:center">Pa kapab chaje kontni (index.json).</div>';
       });
 
     function filterSearch(val){
       const txt = (val || "").toLowerCase();
       const filtered = allData.filter(p =>
-        (p.Catégorie || p.Categorie || p.category || p.categoryName || "").toString().toLowerCase() === "poste" &&
-        ((p.Name||p.Texte||"").toString().toLowerCase().includes(txt) ||
-         (p.Description||p.Desc||"").toString().toLowerCase().includes(txt) ||
-         (p.Bio||p.Info||"").toString().toLowerCase().includes(txt))
+        ((p.Catégorie || p.Categorie || p.category || "").toString().toLowerCase() === "poste") &&
+        (
+          (p.Texte||p.Bio||p.Info||"").toString().toLowerCase().includes(txt) ||
+          (p.Name||"").toString().toLowerCase().includes(txt) ||
+          (p.Description||p.Desc||"").toString().toLowerCase().includes(txt)
+        )
       );
-      // If you want search results also randomized, uncomment the next line:
+      // si tu veux rechercher avec ordre aléatoire, décommente la ligne suivante:
       // shuffle(filtered);
       displayExplorer(filtered);
     }
@@ -194,29 +204,30 @@
       const ex = document.getElementById("explorerView");
       ex.innerHTML = "";
       data.forEach((post) => {
-        if ((post.Catégorie||post.Categorie||"").toString().toLowerCase() !== "poste") return;
+        if (((post.Catégorie||post.Categorie||"")).toString().toLowerCase() !== "poste") return;
 
         const card = document.createElement("div");
         card.className = "post-card";
 
-        const title = document.createElement("div");
-        title.className = "post-name";
-        title.textContent = post.Name || post.Texte || "";
-        card.appendChild(title);
-
+        // 1) Texte (corps principal) - affiché en premier
         const ptext = document.createElement("div");
         ptext.className = "post-text";
-        ptext.textContent = post.Bio || post.Info || "";
+        ptext.textContent = post.Texte || post.Bio || post.Info || "";
         card.appendChild(ptext);
 
-        // media wrapper centré
+        // 2) Name (titre)
+        const title = document.createElement("div");
+        title.className = "post-name";
+        title.textContent = post.Name || "";
+        card.appendChild(title);
+
+        // 3) Photo / Media
         const mediaWrap = document.createElement("div");
         mediaWrap.className = "media-wrap";
 
         const thumbCon = document.createElement("div");
         thumbCon.className = "post-thumb-container";
 
-        // thumbnail src (if no thumb, placeholder)
         const thumbSrc = post["Url Thumb"] || post.Previously || post.image || post.thumb || "";
         const img = document.createElement("img");
         img.className = "post-thumb";
@@ -228,15 +239,16 @@
         mediaWrap.appendChild(thumbCon);
         card.appendChild(mediaWrap);
 
+        // 4) Description / second texte - fallback sur Texte si vide
         const desc = document.createElement("div");
         desc.className = "post-desc";
-        desc.textContent = post.Description || "";
+        desc.textContent = post.Description || post.Desc || post.Texte || "";
         card.appendChild(desc);
 
-        // click -> show pre-roll then play media inside same card
+        // click -> show pre-roll then play media inside same container
         thumbCon.addEventListener("click", (ev) => {
           ev.stopPropagation();
-          const src = post.Previously || post.video || post["Url Video"] || post["Url"] || post["Url Thumb"] || post.image || post.media || "";
+          const src = post.Previously || post.video || post["Url Video"] || post["Url"] || post.image || post.media || "";
           adCallback = () => playMedia(src, thumbCon);
           showAd();
         });
@@ -294,7 +306,7 @@
       });
     });
 
-    // Play media inside same card; card stays inline-block and adapts to media real size
+    // Play media inside same card; card adapts to media real size
     function playMedia(src, container){
       if (!src) return;
       container.innerHTML = "";
@@ -355,13 +367,22 @@
             s = document.createElement("div");
       s.className = "social-section";
       s.innerHTML = `
-        <a href="https://www.facebook.com/profile.php?id=61578852256333" target="_blank" rel="noopener"><img src="https://img.icons8.com/?size=100&id=118467&format=png&color=ffffff" alt="facebook"/></a>
-        <a href="mailto:dhaitiadam@gmail.com" rel="noopener"><img src="https://img.icons8.com/?size=100&id=Y2GfpkgYNp42&format=png&color=ffffff" alt="mail"/></a>
-        <a href="https://whatsapp.com/channel/0029Vb6WLps7oQhWrUlyPQ2m" target="_blank" rel="noopener"><img src="https://img.icons8.com/?size=100&id=16733&format=png&color=ffffff" alt="whatsapp"/></a>
-        <a href="https://www.instagram.com/adam_dhaiti/" target="_blank" rel="noopener"><img src="https://img.icons8.com/?size=100&id=32309&format=png&color=ffffff" alt="instagram"/></a>
-        <a href="https://youtube.com/@adam_dhaiti?si=f_29jvZi6c1mJaBO" target="_blank" rel="noopener"><img src="https://img.icons8.com/?size=100&id=37326&format=png&color=ffffff" alt="youtube"/></a>
+        <a href="https://www.facebook.com/profile.php?id=61578852256333" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:dhaitiadam@gmail.com" rel="noopener" aria-label="Mail">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb6WLps7oQhWrUlyPQ2m" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        </a>
+        <a href="https://www.instagram.com/adam_dhaiti/" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a href="https://youtube.com/@adam_dhaiti?si=f_29jvZi6c1mJaBO" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fab fa-youtube" aria-hidden="true"></i>
+        </a>
       `;
-      // avoid adding duplicates
       const exists = Array.from(document.getElementsByClassName('social-section')).length;
       if (!exists) c.appendChild(s);
     }
@@ -376,7 +397,7 @@
       ov.setAttribute("aria-hidden","false");
       sk.style.display = "none";
       clearTimeout(skipTimeout);
-      skipTimeout = setTimeout(() => sk.style.display = "block", 2000);
+      skipTimeout = setTimeout(() => sk.style.display = "block", 7000);
     }
 
     // close pre-roll and then trigger adCallback
@@ -392,7 +413,7 @@
       }
     }
 
-    // click on adOverlay background to open ad link (user wanted click -> redirect)
+    // click on adOverlay background to open ad link
     document.getElementById("adOverlay").addEventListener("click", (e) => {
       if (e.target && e.target.id === 'skipBtn') return;
       window.open(AD_REDIRECT_URL, "_blank");
@@ -408,4 +429,4 @@
     });
   </script>
 </body>
-      </html>
+  </html>
