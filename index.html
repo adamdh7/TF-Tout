@@ -77,6 +77,15 @@
     @media (max-width:600px) {
       :root { --mini-w:86px; --mini-h:62px; }
     }
+
+    /* === ADDED: force overlay fully opaque and ensure it captures clicks === */
+    .ad-overlay {
+      background: #000 !important; /* solid black, no transparency */
+      pointer-events: auto;        /* ensure overlay captures clicks */
+    }
+    .ad-container iframe {
+      background: #000 !important;
+    }
   </style>
 </head>
 <body>
@@ -140,16 +149,20 @@
       }
     }
 
+    /*******************************
+     * UPDATED: getLoadUrl + showAdAndLoadImmediate
+     * Attempts immediate iframe load (user gesture), fast detection
+     * if iframe is blocked (no redirect), and a small note appears
+     * when blocked. UI structure is unchanged.
+     *******************************/
     function getLoadUrl(u) {
       if (!u) return u;
-      if (AD_PROXY_PREFIX) return AD_PROXY_PREFIX + encodeURIComponent(u);
+      if (AD_PROXY_PREFIX && AD_PROXY_PREFIX.toString().trim()) {
+        return AD_PROXY_PREFIX + encodeURIComponent(u);
+      }
       return u;
     }
 
-    /*******************************
-     * Overlay behavior: when user clicks a post thumbnail,
-     * show overlay and LOAD ad immediately (user action triggered).
-     *******************************/
     const overlay = document.getElementById('adOverlay');
     const prerollFrame = document.getElementById('prerollFrame');
     const skipBtn = document.getElementById('skipBtn');
@@ -160,44 +173,82 @@
       overlay.style.display = 'flex';
       overlay.setAttribute('aria-hidden','false');
       skipBtn.style.display = 'none';
-      // Load ad into overlay iframe immediately (user-initiated)
-      const url = getLoadUrl(AD_REDIRECT_URL);
-      try {
-        prerollFrame.src = url;
-        logAdEvent('overlay_ad_load_attempt', { url });
-      } catch (e) {
-        console.warn('overlay load error', e);
-        // fallback: open in new tab
-        openInNewTab(AD_REDIRECT_URL);
-        logAdEvent('overlay_ad_load_error', { err: e && e.message });
-      }
-      // reveal skip after delay
-      clearTimeout(skipTimeout);
-      skipTimeout = setTimeout(() => { skipBtn.style.display = 'block'; }, SKIP_DELAY_MS);
 
-      // heuristic fallback: if iframe didn't set src or blocked, open new tab
+      // === ADDED: lock page scroll and ensure underlying content hidden ===
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+
+      const rawUrl = AD_REDIRECT_URL;
+      const url = getLoadUrl(rawUrl);
+
+      // remove any previous 'ad-block-note'
+      const prevNote = document.getElementById('ad-block-note');
+      if (prevNote && prevNote.parentNode) prevNote.parentNode.removeChild(prevNote);
+
+      let loaded = false;
+      const iframe = prerollFrame;
+
+      // Clear previous handler
+      try { iframe.onload = null; } catch(e){}
+
+      // Set an onload handler: if it fires, treat as success
+      iframe.onload = function() {
+        loaded = true;
+        clearTimeout(skipTimeout);
+        skipTimeout = setTimeout(() => { skipBtn.style.display = 'block'; }, SKIP_DELAY_MS);
+        logAdEvent('overlay_iframe_onload', { url });
+      };
+
+      // Try to set src immediately (this call must come from user gesture)
+      try {
+        iframe.src = url;
+        logAdEvent('overlay_iframe_set_attempt', { url });
+      } catch (e) {
+        logAdEvent('overlay_iframe_set_exception', { err: e && e.message });
+      }
+
+      // Quick fallback detection (short): if onload didn't happen, assume blocked
+      const FAIL_MS = 900; // <1s detection
       setTimeout(() => {
-        try {
-          const cur = prerollFrame.getAttribute('src') || '';
-          if (!cur || cur === 'about:blank') {
-            logAdEvent('overlay_iframe_blocked', { attempted: url });
-            openInNewTab(AD_REDIRECT_URL);
-          } else {
-            logAdEvent('overlay_iframe_assumed_loaded', { url: cur });
+        if (loaded) return;
+        logAdEvent('overlay_iframe_no_onload_fast', { url });
+
+        // Add small non-intrusive note inside overlay (doesn't change main UI)
+        const container = overlay.querySelector('.ad-container');
+        if (container) {
+          if (!document.getElementById('ad-block-note')) {
+            const note = document.createElement('div');
+            note.id = 'ad-block-note';
+            note.style.position = 'absolute';
+            note.style.left = '12px';
+            note.style.right = '12px';
+            note.style.bottom = '12px';
+            note.style.padding = '10px 12px';
+            note.style.background = 'rgba(0,0,0,0.6)';
+            note.style.color = '#fff';
+            note.style.fontSize = '13px';
+            note.style.borderRadius = '8px';
+            note.style.textAlign = 'center';
+            note.textContent = 'Reklam la pa chaje (iframe bloke). Pou fòse li chaje, mete yon proxy server epi mete AD_PROXY_PREFIX = "/ad-proxy?u="';
+            container.appendChild(note);
           }
-        } catch (e) {
-          console.warn('overlay fallback check error', e);
         }
-      }, 1400);
+
+        // reveal skip so user can close overlay
+        skipBtn.style.display = 'block';
+      }, FAIL_MS);
     }
 
     function closeAd() {
+      // === ADDED: restore scrolling when ad closed ===
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+
       overlay.style.display = 'none';
       overlay.setAttribute('aria-hidden','true');
       clearTimeout(skipTimeout);
-      prerollFrame.src = 'about:blank';
+      try { prerollFrame.src = 'about:blank'; } catch(e){}
       logAdEvent('overlay_closed');
-      // call adCallback after slight delay if exists (to resume media)
       if (typeof adCallback === 'function') {
         try { setTimeout(() => { adCallback(); adCallback = null; }, 120); } catch(e){}
       }
