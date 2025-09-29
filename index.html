@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#000000" />
   <title>Adam_D'H7</title>
 
- <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#000000" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -74,19 +74,41 @@
     .ad-container iframe{ width:100%; height:100%; border:none; background:#000; }
     .skip-btn{ position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.5); border:none; color:#fff; padding:8px 12px; border-radius:6px; cursor:pointer; display:none; z-index:1001; }
 
-    /* MINI-CARD removed */
-
     @media (max-width:600px) {
       :root { --mini-w:86px; --mini-h:62px; }
     }
 
-    /* === ADDED: force overlay fully opaque and ensure it captures clicks === */
     .ad-overlay {
-      background: #000 !important; /* solid black, no transparency */
-      pointer-events: auto;        /* ensure overlay captures clicks */
-    }
-    .ad-container iframe {
       background: #000 !important;
+      pointer-events: auto;
+    }
+
+    /* update banner */
+    #sw-update-banner{
+      position:fixed;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      background:#111;
+      color:#fff;
+      padding:10px 14px;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,.4);
+      font-family:sans-serif;
+      text-align:center;
+      z-index:99999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+    }
+    #sw-update-banner button{
+      background:#1a73e8;
+      color:#fff;
+      border:0;
+      padding:8px 12px;
+      border-radius:6px;
+      cursor:pointer;
     }
   </style>
 </head>
@@ -108,27 +130,18 @@
     </div>
   </div>
 
-  <!-- Mini card removed as requested -->
-
   <script>
     /*******************************
      * CONFIG
      *******************************/
     const AD_REDIRECT_URL = "https://pantherinvincible.com/cdz2dffrd?key=5dc5b83c663fd8944f650feafdc6c600";
-    // If you have a server-side proxy to strip X-Frame-Options, put prefix here, e.g. "/ad-proxy?u="
     const AD_PROXY_PREFIX = null;
-
-    // How long before skip button appears on overlay
     const SKIP_DELAY_MS = 7000;
 
-    /*******************************
-     * Logging helper (localStorage)
-     *******************************/
     function logAdEvent(action, extra = {}) {
       try {
         const logs = JSON.parse(localStorage.getItem('adLogs') || '[]');
         logs.push({ action, extra, t: new Date().toISOString() });
-        // keep last 1000
         while (logs.length > 1000) logs.shift();
         localStorage.setItem('adLogs', JSON.stringify(logs));
       } catch (e) { console.warn('logAdEvent error', e); }
@@ -151,12 +164,6 @@
       }
     }
 
-    /*******************************
-     * UPDATED: getLoadUrl + showAdAndLoadImmediate
-     * Attempts immediate iframe load (user gesture), fast detection
-     * if iframe is blocked (no redirect), and a small note appears
-     * when blocked. UI structure is unchanged.
-     *******************************/
     function getLoadUrl(u) {
       if (!u) return u;
       if (AD_PROXY_PREFIX && AD_PROXY_PREFIX.toString().trim()) {
@@ -175,25 +182,19 @@
       overlay.style.display = 'flex';
       overlay.setAttribute('aria-hidden','false');
       skipBtn.style.display = 'none';
-
-      // === ADDED: lock page scroll and ensure underlying content hidden ===
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
 
       const rawUrl = AD_REDIRECT_URL;
       const url = getLoadUrl(rawUrl);
 
-      // remove any previous 'ad-block-note'
       const prevNote = document.getElementById('ad-block-note');
       if (prevNote && prevNote.parentNode) prevNote.parentNode.removeChild(prevNote);
 
       let loaded = false;
       const iframe = prerollFrame;
 
-      // Clear previous handler
       try { iframe.onload = null; } catch(e){}
-
-      // Set an onload handler: if it fires, treat as success
       iframe.onload = function() {
         loaded = true;
         clearTimeout(skipTimeout);
@@ -201,7 +202,6 @@
         logAdEvent('overlay_iframe_onload', { url });
       };
 
-      // Try to set src immediately (this call must come from user gesture)
       try {
         iframe.src = url;
         logAdEvent('overlay_iframe_set_attempt', { url });
@@ -209,13 +209,10 @@
         logAdEvent('overlay_iframe_set_exception', { err: e && e.message });
       }
 
-      // Quick fallback detection (short): if onload didn't happen, assume blocked
-      const FAIL_MS = 900; // <1s detection
+      const FAIL_MS = 900;
       setTimeout(() => {
         if (loaded) return;
         logAdEvent('overlay_iframe_no_onload_fast', { url });
-
-        // Add small non-intrusive note inside overlay (doesn't change main UI)
         const container = overlay.querySelector('.ad-container');
         if (container) {
           if (!document.getElementById('ad-block-note')) {
@@ -235,17 +232,13 @@
             container.appendChild(note);
           }
         }
-
-        // reveal skip so user can close overlay
         skipBtn.style.display = 'block';
       }, FAIL_MS);
     }
 
     function closeAd() {
-      // === ADDED: restore scrolling when ad closed ===
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
-
       overlay.style.display = 'none';
       overlay.setAttribute('aria-hidden','true');
       clearTimeout(skipTimeout);
@@ -256,7 +249,6 @@
       }
     }
 
-    // ESC to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (overlay.style.display === 'flex') closeAd();
@@ -264,7 +256,7 @@
     });
 
     /*******************************
-     * Posts loading & click wiring (kept from original)
+     * Posts loading & click wiring
      *******************************/
     let allData = [];
 
@@ -343,13 +335,10 @@
         desc.textContent = post.Description || post.Desc || post.Texte || "";
         card.appendChild(desc);
 
-        // WHEN USER CLICKS A POST THUMB: SHOW OVERLAY AND LOAD AD IMMEDIATELY
         thumbCon.addEventListener("click", (ev) => {
           ev.stopPropagation();
           const src = post.Previously || post.video || post["Url Video"] || post["Url"] || post.image || post.media || "";
-          // set callback to play media after ad closed
           adCallback = () => playMedia(src, thumbCon);
-          // show overlay and load ad immediately (user-initiated)
           showAdAndLoadImmediate();
         });
 
@@ -480,21 +469,91 @@
       if (!exists) c.appendChild(s);
     }
 
-    // Expose logs getter for debugging / support (console)
     window.getAdLogs = function() {
       try { return JSON.parse(localStorage.getItem('adLogs') || '[]'); } catch(e) { return []; }
     };
+  </script>
 
-    // End of script
-  </script>
+  <!-- SERVICE WORKER REGISTRATION + UPDATE BANNER -->
   <script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(reg => console.log('SW registered:', reg.scope))
-      .catch(err => console.warn('SW register failed:', err));
-  });
-}
+    // store registration globally so banner can use it
+    window._swReg = null;
+
+    // create update banner UI (if needed)
+    function showUpdateBanner() {
+      if (document.getElementById('sw-update-banner')) return;
+      const banner = document.createElement('div');
+      banner.id = 'sw-update-banner';
+      banner.innerHTML = `
+        <div style="flex:1;text-align:left">Nouvo vèsyon disponib.</div>
+        <div style="display:flex;gap:8px">
+          <button id="sw-update-btn">Mete ajou</button>
+          <button id="sw-dismiss-btn" style="background:transparent;border:1px solid #444;color:#fff;padding:8px 10px;border-radius:6px;cursor:pointer">Fèmen</button>
+        </div>`;
+      document.body.appendChild(banner);
+
+      document.getElementById('sw-update-btn').addEventListener('click', () => {
+        if (!window._swReg) return location.reload();
+        // si gen waiting SW, mande l skipWaiting
+        if (window._swReg.waiting) {
+          window._swReg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
+        // fallback reload apre yon ti tan
+        setTimeout(() => location.reload(), 1500);
+      });
+
+      document.getElementById('sw-dismiss-btn').addEventListener('click', () => {
+        const el = document.getElementById('sw-update-banner');
+        if (el && el.parentNode) el.parentNode.removeChild(el);
+      });
+    }
+
+    // reload when new SW takes control
+    navigator.serviceWorker && navigator.serviceWorker.addEventListener('controllerchange', () => {
+      console.log('New service worker has taken control — reloading');
+      try {
+        // avoid infinite loop: only reload once
+        if (!window.__sw_reload_attempted) {
+          window.__sw_reload_attempted = true;
+          location.reload();
+        }
+      } catch(e){}
+    });
+
+    if ('serviceWorker' in navigator) {
+      // register with version param to bypass server cache for service-worker.js
+      // change v=2 to v=3 next time you update
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js?v=2')
+          .then(reg => {
+            console.log('SW registered:', reg.scope);
+            window._swReg = reg;
+
+            // if there's already a waiting SW (update installed previously) show banner
+            if (reg.waiting) {
+              showUpdateBanner();
+            }
+
+            // observe updates
+            reg.onupdatefound = () => {
+              const newSW = reg.installing;
+              newSW.addEventListener('statechange', () => {
+                if (newSW.state === 'installed') {
+                  if (navigator.serviceWorker.controller) {
+                    // existing page controlled by older SW => update ready
+                    showUpdateBanner();
+                  } else {
+                    console.log('Service worker installed for first time (content cached).');
+                  }
+                }
+              });
+            };
+          })
+          .catch(err => console.warn('SW register failed:', err));
+      });
+    }
   </script>
+
+  <!-- existing simple registration removed (replaced by above) -->
 </body>
-  </html>
+      </html>
