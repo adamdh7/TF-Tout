@@ -1,9 +1,9 @@
 
 // service-worker.js (mete li nan /service-worker.js sou repo a)
-const CACHE_NAME = 'adamdh7-shell-v1';
-const IMAGE_CACHE = 'adamdh7-thumbs-v1';
-const JSON_CACHE = 'adamdh7-json-v1';
-const VIDEO_CACHE = 'adamdh7-videos-v1';
+const CACHE_NAME = 'adamdh7-shell-v2';
+const IMAGE_CACHE = 'adamdh7-thumbs-v2';
+const JSON_CACHE = 'adamdh7-json-v2';
+const VIDEO_CACHE = 'adamdh7-videos-v2';
 const OFFLINE_URL = '/offline.html';
 const PLACEHOLDER = '/images/placeholder-thumb.png';
 
