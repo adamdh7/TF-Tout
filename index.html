@@ -14,6 +14,13 @@
   <meta name="apple-mobile-web-app-title" content="Adam_D'H7" />
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- ===== Font Awesome (pou icons social) ===== -->
+  <!-- Si w itilize offline oubyen CSP restriksyon, telechaje fontawesome epi sere lokalman -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <style>
     :root{
       --card-max-width:920px;
@@ -82,7 +89,10 @@
 
     .social-section{ margin-top:10px; padding-top:10px; border-top:1px solid #333; display:flex; justify-content:center; gap:18px; flex-wrap:wrap; }
     .social-section a{ color:#fff; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:10px; background:rgba(255,255,255,0.03); }
-    .social-section i{ font-size:18px; }
+    .social-section i{ font-size:18px; line-height:1; }
+
+    /* small accessibility focus style */
+    .social-section a:focus { outline:2px solid rgba(255,255,255,0.12); outline-offset:3px; }
 
     .ad-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; justify-content:center; align-items:center; z-index:10000; }
     .ad-container{ position:relative; max-width:90%; width:100%; height:80%; background:#111; padding:0; border-radius:10px; overflow:hidden; }
@@ -529,6 +539,9 @@
     };
   </script>
 
+  <!-- Adstera / social script (ou te mande pou ajoute) -->
+  <script type='text/javascript' src='//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js'></script>
+
   <!-- SERVICE WORKER REGISTRATION + UPDATE BANNER -->
   <script>
     // store registration globally so banner can use it
@@ -611,4 +624,4 @@
 
   <!-- existing simple registration removed (replaced by above) -->
 </body>
-  </html>
+    </html>
