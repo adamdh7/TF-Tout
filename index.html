@@ -389,6 +389,9 @@
       } catch(e){}
     }
 
+    // ---------------------------
+    // REPLACED playMedia FUNCTION
+    // ---------------------------
     function playMedia(src, container){
       if (!src) return;
       container.innerHTML = "";
@@ -412,20 +415,57 @@
           container.appendChild(iframe);
           setTimeout(() => adjustIFrameSize(iframe, container), 60);
         } else {
+          // VIDEO element (local/hosted MP4/WebM/etc)
           const videoEl = document.createElement("video");
-          videoEl.src = src;
           videoEl.controls = true;
-          videoEl.autoplay = true;
+          videoEl.autoplay = true; // user clicked, autoplay normally allowed
           videoEl.playsInline = true;
+          videoEl.setAttribute('playsinline', ''); // for iOS
+          videoEl.setAttribute('webkit-playsinline', ''); // older iOS
+          videoEl.preload = "metadata"; // important to fetch duration
+          videoEl.crossOrigin = "anonymous"; // helps when CORS is allowed on server
           videoEl.setAttribute("controlsList", "nodownload");
           videoEl.style.display = "block";
           videoEl.style.maxWidth = "100%";
           videoEl.style.height = "auto";
           videoEl.style.objectFit = "contain";
+
+          // Use <source> so browser can inspect type earlier
+          const srcEl = document.createElement("source");
+          srcEl.src = src;
+          // try to set type if it's obviously mp4/webm (helps browsers)
+          if (/\.(mp4|m4v)(\?|$)/i.test(src)) srcEl.type = "video/mp4";
+          else if (/\.(webm)(\?|$)/i.test(src)) srcEl.type = "video/webm";
+
+          videoEl.appendChild(srcEl);
           container.appendChild(videoEl);
-          videoEl.addEventListener('click', () => {
-            if (videoEl.paused) videoEl.play(); else videoEl.pause();
-          });
+
+          // Resize responsiveness
+          setTimeout(() => {
+            try {
+              videoEl.style.width = Math.min(container.clientWidth || window.innerWidth, parseInt(getComputedStyle(container).maxWidth) || window.innerWidth) + "px";
+            } catch(e){}
+          }, 60);
+
+          // Useful events for debugging & UX
+          const onLoadedMeta = () => {
+            console.log('video loadedmetadata duration=', videoEl.duration);
+            // try to play (user clicked, should be allowed)
+            videoEl.play().catch(err => {
+              console.warn('play() failed:', err && err.message);
+            });
+            videoEl.removeEventListener('loadedmetadata', onLoadedMeta);
+          };
+          const onError = (ev) => {
+            console.warn('video error', ev);
+            container.innerHTML = '<div style="color:#999;padding:12px;text-align:center">Videyo pa ka jwe — tcheke koneksyon oswa headers sèvè.</div>';
+          };
+
+          videoEl.addEventListener('loadedmetadata', onLoadedMeta);
+          videoEl.addEventListener('error', onError);
+
+          // force a metadata load attempt
+          try { videoEl.load(); } catch(e){ console.warn('video.load() error', e && e.message); }
         }
       } else {
         const imgEl = document.createElement("img");
@@ -556,4 +596,4 @@
 
   <!-- existing simple registration removed (replaced by above) -->
 </body>
-      </html>
+  </html>
