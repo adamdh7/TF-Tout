@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <!-- Meta viewport: disable pinch-zoom (attention: accessibility) -->
+  <!-- META VIEWPORT (minimal change to disable pinch-zoom) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
   <title>Adam_D'H7</title>
@@ -15,6 +15,10 @@
   <meta name="apple-mobile-web-app-title" content="Adam_D'H7" />
   <link rel="apple-touch-icon" href="http://tf-stream-url.onrender.com/TF-TZ2C35E1" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome CDN added so icons like fab fa-facebook-f afiiche san chanje UI -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
   <style>
     :root{
       --card-max-width:920px;
@@ -32,9 +36,6 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       padding-bottom:60px;
-      /* ensure body can scroll if needed */
-      overflow: auto;
-      touch-action: pan-y; /* allow vertical pan (essential for scrolling) */
     }
 
     .header{ padding:18px 16px; text-align:center; position:sticky; top:0; backdrop-filter: blur(10px); background: rgba(0,0,0,0.7); z-index:10; }
@@ -42,15 +43,8 @@
     .search-container{ display:flex; justify-content:center; padding:8px 20px; }
     .search-box{ width:100%; max-width:500px; background:#1c1c1e; border:none; padding:10px 14px; border-radius:12px; color:#fff; font-size:15px; outline:none; }
 
-    /* explorerView: scrollable container (hide scrollbars but keep scrolling) */
-    #explorerView{
-      padding:18px;
-      max-height:calc(100vh - 120px);
-      overflow-y:auto;                 /* allow vertical scrolling */
-      background:#000;
-      -webkit-overflow-scrolling:touch;/* smooth scrolling on iOS */
-      touch-action: pan-y;             /* allow vertical pan, block pinch gestures on some browsers */
-    }
+    /* keep original explorerView behavior (scrollable) */
+    #explorerView{ padding:18px; max-height:calc(100vh - 120px); overflow-y:auto; background:#000; -webkit-overflow-scrolling:touch; }
 
     .post-card{ background:#111; border-radius:14px; padding:14px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.7); }
     .post-name{ font-weight:700; font-size:16px; margin:8px 0; color:#fff; text-align:left; }
@@ -123,23 +117,19 @@
       cursor:pointer;
     }
 
-    /* ---------- HIDE SCROLLBARS BUT KEEP SCROLLING ---------- */
-    /* only hide scrollbars visually; scrolling still works */
-    /* Firefox */
+    /* ---------- HIDE SCROLLBARS VISUALLY BUT KEEP SCROLLING ---------- */
+    /* only target explorerView so UI layout unchanged */
     #explorerView {
-      scrollbar-width: none;
+      -ms-overflow-style: none; /* IE/Edge */
+      scrollbar-width: none;    /* Firefox */
+      touch-action: pan-y;      /* allow vertical pan (important for mobile scroll) */
     }
-    /* IE / Edge */
-    #explorerView {
-      -ms-overflow-style: none;
-    }
-    /* WebKit */
     #explorerView::-webkit-scrollbar {
+      display: none; /* WebKit */
       width: 0;
       height: 0;
-      display: none;
     }
-    /* Do not hide scrollbars globally on html/body to avoid preventing scroll usability */
+
   </style>
 </head>
 <body>
@@ -212,7 +202,6 @@
       overlay.style.display = 'flex';
       overlay.setAttribute('aria-hidden','false');
       skipBtn.style.display = 'none';
-      // disable page scrolling while overlay shown
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
 
@@ -268,7 +257,6 @@
     }
 
     function closeAd() {
-      // restore page scrolling
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       overlay.style.display = 'none';
@@ -431,7 +419,6 @@
           const iframe = document.createElement("iframe");
           iframe.src = normalizeYouTubeEmbed(src);
           iframe.allow = "autoplay; fullscreen; picture-in-picture";
-          iframe.allowFullscreen = true;
           iframe.style.border = "none";
           iframe.style.display = "block";
           container.appendChild(iframe);
@@ -440,7 +427,6 @@
           const iframe = document.createElement("iframe");
           iframe.src = normalizeVimeoEmbed(src);
           iframe.allow = "autoplay; fullscreen; picture-in-picture";
-          iframe.allowFullscreen = true;
           iframe.style.border = "none";
           iframe.style.display = "block";
           container.appendChild(iframe);
@@ -586,42 +572,36 @@
           .catch(err => console.warn('SW register failed:', err));
       });
     }
+  </script>
 
-    /* ---------------------------------------------------------
-       Prevent pinch-zoom / gesture zoom and double-tap zoom
-       Carefully written so it does NOT block vertical scrolling.
-       --------------------------------------------------------- */
-
+  <!-- Prevent pinch-zoom / gesturestart / double-tap zoom (minimal, preserves vertical scrolling) -->
+  <script>
     // iOS Safari: prevent gesturestart (pinch)
     document.addEventListener('gesturestart', function(e) {
-      // Prevent pinch-to-zoom but don't interfere with normal scrolling
       e.preventDefault();
     });
 
-    // Only prevent scaling behavior when scale property indicates pinch (some browsers)
+    // Block scale changes during touchmove (for browsers that set e.scale)
     document.addEventListener('touchmove', function (e) {
       if (e.scale && e.scale !== 1) {
-        // prevent pinch zoom gesture
         e.preventDefault();
       }
     }, { passive: false });
 
-    // Double-tap-to-zoom prevention (lightweight)
+    // Prevent double-tap to zoom (simple heuristic)
     (function() {
       let lastTouch = 0;
       document.addEventListener('touchend', function(e) {
         const now = Date.now();
-        const dt = now - lastTouch;
-        lastTouch = now;
-        // if second tap in quick succession, prevent default zoom behavior
-        if (dt > 0 && dt <= 300) {
-          // ignore events on form fields
+        if (now - lastTouch <= 300) {
+          // second tap within 300ms -> prevent default to avoid zoom
+          // but avoid blocking interaction on form fields
           const tag = (e.target && e.target.tagName) || '';
           if (['INPUT','TEXTAREA','SELECT'].indexOf(tag) === -1) {
             e.preventDefault();
-            e.stopPropagation();
           }
         }
+        lastTouch = now;
       }, { passive: false });
     })();
   </script>
