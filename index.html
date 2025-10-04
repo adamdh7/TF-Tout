@@ -38,7 +38,22 @@
     .search-container{ display:flex; justify-content:center; padding:8px 20px; }
     .search-box{ width:100%; max-width:500px; background:#1c1c1e; border:none; padding:10px 14px; border-radius:12px; color:#fff; font-size:15px; outline:none; }
 
+    /* Explorer view (scrollable) */
     #explorerView{ padding:18px; max-height:calc(100vh - 120px); overflow-y:auto; background:#000; -webkit-overflow-scrolling:touch; }
+
+    /* -------------------------
+       HIDE SCROLLBAR (Explorer)
+       Scroll reste fonctionnel
+       ------------------------- */
+    #explorerView {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none;    /* Firefox */
+    }
+    #explorerView::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+      width: 0;
+      height: 0;
+    }
 
     .post-card{ background:#111; border-radius:14px; padding:14px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.7); }
     .post-name{ font-weight:700; font-size:16px; margin:8px 0; color:#fff; text-align:left; }
