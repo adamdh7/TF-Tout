@@ -2,28 +2,19 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- Meta viewport: disable pinch-zoom (attention: accessibility) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
   <title>Adam_D'H7</title>
 
   <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#000000" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Adam_D'H7" />
-
-  <!-- Favicon / Apple PWA icon (URL absolu san slash prezan) -->
-  <link rel="icon" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png" type="image/png" />
-  <link rel="apple-touch-icon" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.jpg" />
-
-  <!-- Google Font -->
+  <link rel="apple-touch-icon" href="http://tf-stream-url.onrender.com/TF-TZ2C35E1" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome (optional) -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
   <style>
     :root{
       --card-max-width:920px;
@@ -41,6 +32,9 @@
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       padding-bottom:60px;
+      /* ensure body can scroll if needed */
+      overflow: auto;
+      touch-action: pan-y; /* allow vertical pan (essential for scrolling) */
     }
 
     .header{ padding:18px 16px; text-align:center; position:sticky; top:0; backdrop-filter: blur(10px); background: rgba(0,0,0,0.7); z-index:10; }
@@ -48,21 +42,14 @@
     .search-container{ display:flex; justify-content:center; padding:8px 20px; }
     .search-box{ width:100%; max-width:500px; background:#1c1c1e; border:none; padding:10px 14px; border-radius:12px; color:#fff; font-size:15px; outline:none; }
 
-    /* Explorer view (scrollable) */
-    #explorerView{ padding:18px; max-height:calc(100vh - 120px); overflow-y:auto; background:#000; -webkit-overflow-scrolling:touch; }
-
-    /* -------------------------
-       HIDE SCROLLBAR (Explorer)
-       Scroll reste fonctionnel
-       ------------------------- */
-    #explorerView {
-      -ms-overflow-style: none; /* IE and Edge */
-      scrollbar-width: none;    /* Firefox */
-    }
-    #explorerView::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera */
-      width: 0;
-      height: 0;
+    /* explorerView: scrollable container (hide scrollbars but keep scrolling) */
+    #explorerView{
+      padding:18px;
+      max-height:calc(100vh - 120px);
+      overflow-y:auto;                 /* allow vertical scrolling */
+      background:#000;
+      -webkit-overflow-scrolling:touch;/* smooth scrolling on iOS */
+      touch-action: pan-y;             /* allow vertical pan, block pinch gestures on some browsers */
     }
 
     .post-card{ background:#111; border-radius:14px; padding:14px; margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,0.7); }
@@ -92,10 +79,7 @@
 
     .social-section{ margin-top:10px; padding-top:10px; border-top:1px solid #333; display:flex; justify-content:center; gap:18px; flex-wrap:wrap; }
     .social-section a{ color:#fff; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:10px; background:rgba(255,255,255,0.03); }
-    .social-section i{ font-size:18px; line-height:1; }
-
-    /* small accessibility focus style */
-    .social-section a:focus { outline:2px solid rgba(255,255,255,0.12); outline-offset:3px; }
+    .social-section i{ font-size:18px; }
 
     .ad-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.9); display:none; justify-content:center; align-items:center; z-index:10000; }
     .ad-container{ position:relative; max-width:90%; width:100%; height:80%; background:#111; padding:0; border-radius:10px; overflow:hidden; }
@@ -138,6 +122,24 @@
       border-radius:6px;
       cursor:pointer;
     }
+
+    /* ---------- HIDE SCROLLBARS BUT KEEP SCROLLING ---------- */
+    /* only hide scrollbars visually; scrolling still works */
+    /* Firefox */
+    #explorerView {
+      scrollbar-width: none;
+    }
+    /* IE / Edge */
+    #explorerView {
+      -ms-overflow-style: none;
+    }
+    /* WebKit */
+    #explorerView::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+    /* Do not hide scrollbars globally on html/body to avoid preventing scroll usability */
   </style>
 </head>
 <body>
@@ -210,6 +212,7 @@
       overlay.style.display = 'flex';
       overlay.setAttribute('aria-hidden','false');
       skipBtn.style.display = 'none';
+      // disable page scrolling while overlay shown
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
 
@@ -265,6 +268,7 @@
     }
 
     function closeAd() {
+      // restore page scrolling
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       overlay.style.display = 'none';
@@ -417,9 +421,6 @@
       } catch(e){}
     }
 
-    // ---------------------------
-    // REPLACED playMedia FUNCTION
-    // ---------------------------
     function playMedia(src, container){
       if (!src) return;
       container.innerHTML = "";
@@ -430,6 +431,7 @@
           const iframe = document.createElement("iframe");
           iframe.src = normalizeYouTubeEmbed(src);
           iframe.allow = "autoplay; fullscreen; picture-in-picture";
+          iframe.allowFullscreen = true;
           iframe.style.border = "none";
           iframe.style.display = "block";
           container.appendChild(iframe);
@@ -438,62 +440,26 @@
           const iframe = document.createElement("iframe");
           iframe.src = normalizeVimeoEmbed(src);
           iframe.allow = "autoplay; fullscreen; picture-in-picture";
+          iframe.allowFullscreen = true;
           iframe.style.border = "none";
           iframe.style.display = "block";
           container.appendChild(iframe);
           setTimeout(() => adjustIFrameSize(iframe, container), 60);
         } else {
-          // VIDEO element (local/hosted MP4/WebM/etc)
           const videoEl = document.createElement("video");
+          videoEl.src = src;
           videoEl.controls = true;
-          videoEl.autoplay = true; // user clicked, autoplay normally allowed
+          videoEl.autoplay = true;
           videoEl.playsInline = true;
-          videoEl.setAttribute('playsinline', ''); // for iOS
-          videoEl.setAttribute('webkit-playsinline', ''); // older iOS
-          videoEl.preload = "metadata"; // important to fetch duration
-          videoEl.crossOrigin = "anonymous"; // helps when CORS is allowed on server
           videoEl.setAttribute("controlsList", "nodownload");
           videoEl.style.display = "block";
           videoEl.style.maxWidth = "100%";
           videoEl.style.height = "auto";
           videoEl.style.objectFit = "contain";
-
-          // Use <source> so browser can inspect type earlier
-          const srcEl = document.createElement("source");
-          srcEl.src = src;
-          // try to set type if it's obviously mp4/webm (helps browsers)
-          if (/\.(mp4|m4v)(\?|$)/i.test(src)) srcEl.type = "video/mp4";
-          else if (/\.(webm)(\?|$)/i.test(src)) srcEl.type = "video/webm";
-
-          videoEl.appendChild(srcEl);
           container.appendChild(videoEl);
-
-          // Resize responsiveness
-          setTimeout(() => {
-            try {
-              videoEl.style.width = Math.min(container.clientWidth || window.innerWidth, parseInt(getComputedStyle(container).maxWidth) || window.innerWidth) + "px";
-            } catch(e){}
-          }, 60);
-
-          // Useful events for debugging & UX
-          const onLoadedMeta = () => {
-            console.log('video loadedmetadata duration=', videoEl.duration);
-            // try to play (user clicked, should be allowed)
-            videoEl.play().catch(err => {
-              console.warn('play() failed:', err && err.message);
-            });
-            videoEl.removeEventListener('loadedmetadata', onLoadedMeta);
-          };
-          const onError = (ev) => {
-            console.warn('video error', ev);
-            container.innerHTML = '<div style="color:#999;padding:12px;text-align:center">Videyo pa ka jwe — tcheke koneksyon oswa headers sèvè.</div>';
-          };
-
-          videoEl.addEventListener('loadedmetadata', onLoadedMeta);
-          videoEl.addEventListener('error', onError);
-
-          // force a metadata load attempt
-          try { videoEl.load(); } catch(e){ console.warn('video.load() error', e && e.message); }
+          videoEl.addEventListener('click', () => {
+            if (videoEl.paused) videoEl.play(); else videoEl.pause();
+          });
         }
       } else {
         const imgEl = document.createElement("img");
@@ -512,28 +478,25 @@
       }
     }
 
-    // ===========================
-    // displaySocialLinks (SVG fallback)
-    // ===========================
     function displaySocialLinks(){
       const c = document.getElementById("explorerView"),
             s = document.createElement("div");
       s.className = "social-section";
       s.innerHTML = `
         <a href="https://www.facebook.com/profile.php?id=61578852256333" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 4.99 3.66 9.13 8.44 9.93v-7.03H8.08v-2.9h2.36V9.41c0-2.33 1.39-3.62 3.51-3.62.99 0 2.03.18 2.03.18v2.23h-1.14c-1.12 0-1.47.7-1.47 1.42v1.7h2.5l-.4 2.9h-2.1v7.03C18.34 21.2 22 17.06 22 12.07z"/></svg>
+          <i class="fab fa-facebook-f" aria-hidden="true"></i>
         </a>
         <a href="mailto:dhaitiadam@gmail.com" rel="noopener noreferrer" aria-label="Mail">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/></svg>
+          <i class="fas fa-envelope" aria-hidden="true"></i>
         </a>
-        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.672.15-.198.297-.768.966-.942 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.173.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.672-1.611-.921-2.206-.242-.579-.487-.5-.672-.51l-.573-.01c-.198 0-.52.074-.792.372-.273.298-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487  .709.306 1.262.489 1.694.627.712.227 1.36.195 1.872.118.571-.085 1.758-.718 2.006-1.41.248-.693.248-1.287.173-1.41-.074-.123-.272-.198-.57-.347z"/></svg>
+        <a href="https://whatsapp.com/channel/0029Vb6WLps7oQhWrUlyPQ2m" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i>
         </a>
         <a href="https://www.instagram.com/adam_dhaiti/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zM12 7.5A4.5 4.5 0 1012 16.5 4.5 4.5 0 0012 7.5zm0 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM17.8 6.2a.9.9 0 11-1.8 0 .9.9 0 011.8 0z"/></svg>
+          <i class="fab fa-instagram" aria-hidden="true"></i>
         </a>
         <a href="https://youtube.com/@adam_dhaiti?si=f_29jvZi6c1mJaBO" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M23.498 6.186A3.003 3.003 0 0021.405 4.1C19.547 3.6 12 3.6 12 3.6s-7.547 0-9.405.5A3.003 3.003 0 00.501 6.186C0 8.047 0 12 0 12s0 3.953.501 5.814A3.003 3.003 0 002.595 19.9C4.453 20.4 12 20.4 12 20.4s7.547 0 9.405-.5a3.003 3.003 0 002.095-1.586C24 15.953 24 12 24 12s0-3.953-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <i class="fab fa-youtube" aria-hidden="true"></i>
         </a>
       `;
       const exists = Array.from(document.getElementsByClassName('social-section')).length;
@@ -544,9 +507,6 @@
       try { return JSON.parse(localStorage.getItem('adLogs') || '[]'); } catch(e) { return []; }
     };
   </script>
-
-  <!-- Adstera / social script (optional) -->
-  <script type="text/javascript" src="//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js"></script>
 
   <!-- SERVICE WORKER REGISTRATION + UPDATE BANNER -->
   <script>
@@ -626,8 +586,46 @@
           .catch(err => console.warn('SW register failed:', err));
       });
     }
+
+    /* ---------------------------------------------------------
+       Prevent pinch-zoom / gesture zoom and double-tap zoom
+       Carefully written so it does NOT block vertical scrolling.
+       --------------------------------------------------------- */
+
+    // iOS Safari: prevent gesturestart (pinch)
+    document.addEventListener('gesturestart', function(e) {
+      // Prevent pinch-to-zoom but don't interfere with normal scrolling
+      e.preventDefault();
+    });
+
+    // Only prevent scaling behavior when scale property indicates pinch (some browsers)
+    document.addEventListener('touchmove', function (e) {
+      if (e.scale && e.scale !== 1) {
+        // prevent pinch zoom gesture
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    // Double-tap-to-zoom prevention (lightweight)
+    (function() {
+      let lastTouch = 0;
+      document.addEventListener('touchend', function(e) {
+        const now = Date.now();
+        const dt = now - lastTouch;
+        lastTouch = now;
+        // if second tap in quick succession, prevent default zoom behavior
+        if (dt > 0 && dt <= 300) {
+          // ignore events on form fields
+          const tag = (e.target && e.target.tagName) || '';
+          if (['INPUT','TEXTAREA','SELECT'].indexOf(tag) === -1) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      }, { passive: false });
+    })();
   </script>
 
-  <!-- end -->
+<script type='text/javascript' src='//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js'></script>
 </body>
   </html>
