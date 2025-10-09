@@ -1,4 +1,249 @@
+
 [
+  {
+    "Name": "Adam_D'H7 | Solstice",
+    "Url Thumb": "https://example.com/solstice_thumb.jpg",
+    "Url Video": "https://example.com/solstice_video.mp4",
+    "Bio": "Gardien du temps, marquant les cycles de la nature et célébrant les moments de transition avec une solennité sacrée."
+  },
+  {
+    "Name": "Adam_D'H7 | Murmure",
+    "Url Thumb": "https://example.com/murmure_thumb.jpg",
+    "Url Video": "https://example.com/murmure_video.mp4",
+    "Bio": "Confesseur des secrets, chuchotant des vérités oubliées et partageant des histoires intimes avec ceux qui savent écouter."
+  },
+  {
+    "Name": "Adam_D'H7 | Équinoxe",
+    "Url Thumb": "https://example.com/equinoxe_thumb.jpg",
+    "Url Video": "https://example.com/equinoxe_video.mp4",
+    "Bio": "Artisan de l'équilibre, harmonisant les forces opposées et trouvant la beauté dans l'unité des contraires."
+  },
+  {
+    "Name": "Adam_D'H7 | Rêverie",
+    "Url Thumb": "https://example.com/reverie_thumb.jpg",
+    "Url Video": "https://example.com/reverie_video.mp4",
+    "Bio": "Navigateur de l'imaginaire, explorant les territoires inexplorés de l'esprit et transformant les pensées en réalités tangibles."
+  },
+  {
+    "Name": "Adam_D'H7 | Chimère",
+    "Url Thumb": "https://example.com/chimere_thumb.jpg",
+    "Url Video": "https://example.com/chimere_video.mp4",
+    "Bio": "Créateur d'illusions, tissant des réalités alternatives et offrant un aperçu des mondes qui pourraient exister."
+  },
+  {
+    "Name": "Adam_D'H7 | Sérénité",
+    "Url Thumb": "https://example.com/serenite_thumb.jpg",
+    "Url Video": "https://example.com/serenite_video.mp4",
+    "Bio": "Source de paix, apportant le calme et la tranquillité dans les cœurs agités et guidant vers un état de bonheur intérieur."
+  },
+  {
+    "Name": "Adam_D'H7 | Paradoxe",
+    "Url Thumb": "https://example.com/paradoxe_thumb.jpg",
+    "Url Video": "https://example.com/paradoxe_video.mp4",
+    "Bio": "Maître de la contradiction, défiant les certitudes et ouvrant les portes vers une compréhension plus profonde de l'univers."
+  },
+  {
+    "Name": "Adam_D'H7 | Crépuscule",
+    "Url Thumb": "https://example.com/crepuscule_thumb.jpg",
+    "Url Video": "https://example.com/crepuscule_video.mp4",
+    "Bio": "Mélancolie incarnée, peignant le ciel de nuances sombres et profondes, capturant l'instant fugace où le jour cède la place à la nuit."
+  },
+  {
+    "Name": "Adam_D'H7 | Équinoxe",
+    "Url Thumb": "https://example.com/equinoxe_thumb.jpg",
+    "Url Video": "https://example.com/equinoxe_video.mp4",
+    "Bio": "Gardien de l'équilibre, célébrant l'harmonie entre la lumière et l'ombre, le jour et la nuit, dans une danse éternelle de complémentarité."
+  },
+  {
+    "Name": "Adam_D'H7 | Solstice",
+    "Url Thumb": "https://example.com/solstice_thumb.jpg",
+    "Url Video": "https://example.com/solstice_video.mp4",
+    "Bio": "Messager des saisons, annonçant les changements imminents, les renaissances et les transitions, dans un cycle infini de transformation."
+  },
+  {
+    "Name": "Adam_D'H7 | Cascade",
+    "Url Thumb": "https://example.com/cascade_thumb.jpg",
+    "Url Video": "https://example.com/cascade_video.mp4",
+    "Bio": "Flux vital, déversant une énergie pure et rafraîchissante, purifiant les âmes et régénérant les esprits avec la force impétueuse de la nature."
+  },
+  {
+    "Name": "Adam_D'H7 | Labyrinthe",
+    "Url Thumb": "https://example.com/labyrinthe_thumb.jpg",
+    "Url Video": "https://example.com/labyrinthe_video.mp4",
+    "Bio": "Cartographe de l'âme, guidant les voyageurs égarés à travers les méandres de l'inconscient, les dédales de la pensée, jusqu'à la découverte de soi."
+  },
+  {
+    "Name": "Adam_D'H7 | Phénix",
+    "Url Thumb": "https://example.com/phenix_thumb.jpg",
+    "Url Video": "https://example.com/phenix_video.mp4",
+    "Bio": "Symbole de résilience, renaissant de ses cendres avec une force renouvelée, incarnant l'espoir et la promesse d'un nouveau départ après chaque épreuve."
+  },
+  {
+    "Name": "Adam_D'H7 | Rhapsodie",
+    "Url Thumb": "https://example.com/rhapsodie_thumb.jpg",
+    "Url Video": "https://example.com/rhapsodie_video.mp4",
+    "Bio": "Compositeur d'émotions, tissant des mélodies complexes et envoûtantes, capturant l'essence même de la joie, de la tristesse, de l'amour et de la passion."
+  },
+  {
+    "Name": "Adam_D'H7 | Nébuleuse",
+    "Url Thumb": "https://example.com/nebuleuse_thumb.jpg",
+    "Url Video": "https://example.com/nebuleuse_video.mp4",
+    "Bio": "Explorateur des galaxies, naviguant à travers les constellations de rêves et découvrant des mondes insoupçonnés."
+  },
+  {
+    "Name": "Adam_D'H7 | Solstice",
+    "Url Thumb": "https://example.com/solstice_thumb.jpg",
+    "Url Video": "https://example.com/solstice_video.mp4",
+    "Bio": "Célébrateur des saisons, marquant le passage du temps avec des rituels poétiques et des mélodies envoûtantes."
+  },
+  {
+    "Name": "Adam_D'H7 | Abysse",
+    "Url Thumb": "https://example.com/abysse_thumb.jpg",
+    "Url Video": "https://example.com/abysse_video.mp4",
+    "Bio": "Plongeur des profondeurs, explorant les mystères cachés au fond des océans et révélant les secrets enfouis."
+  },
+  {
+    "Name": "Adam_D'H7 | Création",
+    "Url Thumb": "https://example.com/creation_thumb.jpg",
+    "Url Video": "https://example.com/creation_video.mp4",
+    "Bio": "Artisan de l'univers, façonnant des réalités alternatives et donnant vie à des visions extraordinaires."
+  },
+  {
+    "Name": "Adam_D'H7 | Énigme",
+    "Url Thumb": "https://example.com/enigme_thumb.jpg",
+    "Url Video": "https://example.com/enigme_video.mp4",
+    "Bio": "Résolveur de mystères, déchiffrant les codes secrets de l'existence et révélant les vérités cachées derrière les apparences."
+  },
+  {
+    "Name": "Adam_D'H7 | Incandescence",
+    "Url Thumb": "https://example.com/incandescence_thumb.jpg",
+    "Url Video": "https://example.com/incandescence_video.mp4",
+    "Bio": "Porteur de lumière, illuminant les ténèbres de son étincelle créatrice et réchauffant les cœurs de sa passion."
+  },
+  {
+    "Name": "Adam_D'H7 | Sillage",
+    "Url Thumb": "https://example.com/sillage_thumb.jpg",
+    "Url Video": "https://example.com/sillage_video.mp4",
+    "Bio": "Navigateur des âmes, laissant derrière lui un parfum de mystère et une trace indélébile dans le cœur de ceux qu'il croise."
+  },
+  {
+    "Name": "Adam_D'H7 | Mélancolie",
+    "Url Thumb": "https://example.com/melancolie_thumb.jpg",
+    "Url Video": "https://example.com/melancolie_video.mp4",
+    "Bio": "Muse des songes, tissant des rêveries nostalgiques et des harmonies douces-amères qui enchantent les esprits sensibles."
+  },
+  {
+    "Name": "Adam_D'H7 | Révérence",
+    "Url Thumb": "https://example.com/reverence_thumb.jpg",
+    "Url Video": "https://example.com/reverence_video.mp4",
+    "Bio": "Gardien des traditions, honorant le passé et inspirant l'avenir avec un respect profond et une sagesse intemporelle."
+  },
+  {
+    "Name": "Adam_D'H7 | Quintessence",
+    "Url Thumb": "https://example.com/quintessence_thumb.jpg",
+    "Url Video": "https://example.com/quintessence_video.mp4",
+    "Bio": "Alchimiste des mots, distillant l'essence même de la beauté et transformant les idées en œuvres d'art éternelles."
+  },
+  {
+    "Name": "Adam_D'H7 | Zéphyr",
+    "Url Thumb": "https://example.com/zephyr_thumb.jpg",
+    "Url Video": "https://example.com/zephyr_video.mp4",
+    "Bio": "Souffle de l'été, apportant la douceur et la légèreté dans un monde en quête de renouveau."
+  },
+  {
+    "Name": "Adam_D'H7 | Incandescence",
+    "Url Thumb": "https://example.com/incandescence_thumb.jpg",
+    "Url Video": "https://example.com/incandescence_video.mp4",
+    "Bio": "Porteur de lumière, illuminant les esprits et réchauffant les cœurs avec une passion ardente."
+  },
+  {
+    "Name": "Adam_D'H7 | Mélancolie",
+    "Url Thumb": "https://example.com/melancolie_thumb.jpg",
+    "Url Video": "https://example.com/melancolie_video.mp4",
+    "Bio": "Muse des âmes perdues, capturant la beauté de la tristesse et transformant le chagrin en art."
+  },
+  {
+    "Name": "Adam_D'H7 | Quête",
+    "Url Thumb": "https://example.com/quete_thumb.jpg",
+    "Url Video": "https://example.com/quete_video.mp4",
+    "Bio": "Voyageur infatigable, explorant les confins de l'imagination et découvrant des trésors cachés au plus profond de l'âme."
+  },
+  {
+    "Name": "Adam_D'H7 | Rêverie",
+    "Url Thumb": "https://example.com/reverie_thumb.jpg",
+    "Url Video": "https://example.com/reverie_video.mp4",
+    "Bio": "Tisseur de songes, tissant des histoires fantastiques qui transportent les esprits dans des contrées lointaines et merveilleuses."
+  },
+  {
+    "Name": "Adam_D'H7 | Aurora",
+    "Url Thumb": "https://example.com/aurora_thumb.jpg",
+    "Url Video": "https://example.com/aurora_video.mp4",
+    "Bio": "Peintre de l'aube, colorant l'horizon de teintes infinies et de promesses renouvelées."
+  },
+  {
+    "Name": "Adam_D'H7 | Silencieux",
+    "Url Thumb": "https://example.com/silencieux_thumb.jpg",
+    "Url Video": "https://example.com/silencieux_video.mp4",
+    "Bio": "Gardien des secrets, écoutant les murmures du vent et les confessions de la nuit."
+  },
+  {
+    "Name": "Adam_D'H7 | Incandescence",
+    "Url Thumb": "https://example.com/incandescence_thumb.jpg",
+    "Url Video": "https://example.com/incandescence_video.mp4",
+    "Bio": "Forgeur d'étincelles, embrasant les cœurs de passions vives et de désirs ardents."
+  },
+  {
+    "Name": "Adam_D'H7 | Labyrinthique",
+    "Url Thumb": "https://example.com/labyrinthique_thumb.jpg",
+    "Url Video": "https://example.com/labyrinthique_video.mp4",
+    "Bio": "Navigateur des méandres, explorant les recoins de l'âme et les dédales de l'esprit."
+  },
+  {
+    "Name": "Adam_D'H7 | Mélancolie",
+    "Url Thumb": "https://example.com/melancolie_thumb.jpg",
+    "Url Video": "https://example.com/melancolie_video.mp4",
+    "Bio": "Chroniqueur des regrets, transformant les souvenirs en poèmes et les larmes en perles."
+  },
+  {
+    "Name": "Adam_D'H7 | Éphémère",
+    "Url Thumb": "https://example.com/ephemere_thumb.jpg",
+    "Catégorie": "Poème",
+    "Description": "Éphémère, comme la rosée du matin, une beauté fugace qui se dérobe à l'aube, un souvenir impalpable gravé dans le cœur.",
+    "Url Video": "",
+    "Bio": "Chasseur d'instants, capturant l'essence de l'éphémère pour l'éternité."
+  },
+  {
+    "Name": "Adam_D'H7 | Ineffable",
+    "Url Thumb": "https://example.com/ineffable_thumb.jpg",
+    "Catégorie": "Poésie",
+    "Description": "Ineffable, ce qui dépasse les mots, un sentiment si profond qu'il se perd dans le silence de l'âme, une vérité indicible.",
+    "Url Video": "",
+    "Bio": "Explorateur des silences, traduisant l'ineffable en émotions palpables."
+  },
+  {
+    "Name": "Adam_D'H7 | Sempiternel",
+    "Url Thumb": "https://example.com/sempiternel_thumb.jpg",
+    "Catégorie": "Réflexion",
+    "Description": "Sempiternel, une flamme qui brûle à jamais, un amour qui défie le temps, une vérité immuable ancrée dans l'éternité.",
+    "Url Video": "",
+    "Bio": "Gardien de l'éternité, préservant les flammes de l'espoir et de la vérité."
+  },
+  {
+    "Name": "Adam_D'H7 | Ataraxie",
+    "Url Thumb": "https://example.com/ataraxie_thumb.jpg",
+    "Catégorie": "Philosophie",
+    "Description": "Ataraxie, la sérénité de l'âme, l'absence de trouble, un état de paix intérieure où les tempêtes de la vie ne font que murmurer.",
+    "Url Video": "",
+    "Bio": "Chercheur de paix, guidant les âmes vers l'ataraxie, un havre de sérénité au cœur du chaos."
+  },
+    {
+    "Name": "Adam_D'H7 | Songe",
+    "Url Thumb": "https://example.com/songe_thumb.jpg",
+    "Catégorie": "Rêverie",
+    "Description": "Songe, une porte ouverte sur l'imaginaire, un voyage au-delà des frontières du réel, où les rêves prennent vie et les chimères dansent.",
+    "Url Video": "",
+    "Bio": "Architecte de rêves, bâtissant des mondes oniriques où tout devient possible."
+  },
   {
     "Name": "Adam_D'H7 | Luminescence",
     "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
