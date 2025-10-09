@@ -1,815 +1,562 @@
-
 [
   {
     "Name": "Adam_D'H7 | Solstice",
-    "Url Thumb": "https://example.com/solstice_thumb.jpg",
-    "Url Video": "https://example.com/solstice_video.mp4",
-    "Bio": "Gardien du temps, marquant les cycles de la nature et célébrant les moments de transition avec une solennité sacrée."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_solstice_video.mp4",
+    "Description": "Solstice d'ambre — je plie le jour comme un parchemin: tes lèvres inscrivent des renaissances. Palimpseste des saisons, mon cœur se réécrit en braises.",
+    "Bio": "Gardien du temps"
   },
   {
     "Name": "Adam_D'H7 | Murmure",
-    "Url Thumb": "https://example.com/murmure_thumb.jpg",
-    "Url Video": "https://example.com/murmure_video.mp4",
-    "Bio": "Confesseur des secrets, chuchotant des vérités oubliées et partageant des histoires intimes avec ceux qui savent écouter."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_murmure_video.mp4",
+    "Description": "Un murmure hypnagogique traverse la nuit; il susurre des vérités incandescentes qui font éclore des fleurs de cendre dans la poitrine.",
+    "Bio": "Voix secrète"
   },
   {
     "Name": "Adam_D'H7 | Équinoxe",
-    "Url Thumb": "https://example.com/equinoxe_thumb.jpg",
-    "Url Video": "https://example.com/equinoxe_video.mp4",
-    "Bio": "Artisan de l'équilibre, harmonisant les forces opposées et trouvant la beauté dans l'unité des contraires."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_equinoxe_video.mp4",
+    "Description": "À l'équinoxe, je scande l'équilibre: deux hallebardes de lumière se rencontrent et font choir la raison en offrande de clarté.",
+    "Bio": "Artisan d'équilibre"
   },
   {
     "Name": "Adam_D'H7 | Rêverie",
-    "Url Thumb": "https://example.com/reverie_thumb.jpg",
-    "Url Video": "https://example.com/reverie_video.mp4",
-    "Bio": "Navigateur de l'imaginaire, explorant les territoires inexplorés de l'esprit et transformant les pensées en réalités tangibles."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_reverie_video.mp4",
+    "Description": "Rêve en diapason — tes gestes sculptent des îles intérieures; je vogue en apnée sur des métaphores phosphorescentes.",
+    "Bio": "Tisseur de rêves"
   },
   {
     "Name": "Adam_D'H7 | Chimère",
-    "Url Thumb": "https://example.com/chimere_thumb.jpg",
-    "Url Video": "https://example.com/chimere_video.mp4",
-    "Bio": "Créateur d'illusions, tissant des réalités alternatives et offrant un aperçu des mondes qui pourraient exister."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_chimere_video.mp4",
+    "Description": "Chimère d'encre: je conjure des horizons factices qui brûlent comme un mot rare; l'illusion est une armure qui saigne beauté.",
+    "Bio": "Créateur d'illusions"
   },
   {
     "Name": "Adam_D'H7 | Sérénité",
-    "Url Thumb": "https://example.com/serenite_thumb.jpg",
-    "Url Video": "https://example.com/serenite_video.mp4",
-    "Bio": "Source de paix, apportant le calme et la tranquillité dans les cœurs agités et guidant vers un état de bonheur intérieur."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_serenite_video.mp4",
+    "Description": "Sérénité hiémale: souffle lent, pierre chaude au cœur. Silence lucide qui répare les fissures et apaise la houle intérieure.",
+    "Bio": "Source de paix"
   },
   {
     "Name": "Adam_D'H7 | Paradoxe",
-    "Url Thumb": "https://example.com/paradoxe_thumb.jpg",
-    "Url Video": "https://example.com/paradoxe_video.mp4",
-    "Bio": "Maître de la contradiction, défiant les certitudes et ouvrant les portes vers une compréhension plus profonde de l'univers."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_paradoxe_video.mp4",
+    "Description": "Paradoxe en éruption: j'aime et je fuis; je bâtis des ponts sur des abîmes et j'y danse, sourire carnassier et tendre.",
+    "Bio": "Maître paradoxal"
   },
   {
     "Name": "Adam_D'H7 | Crépuscule",
-    "Url Thumb": "https://example.com/crepuscule_thumb.jpg",
-    "Url Video": "https://example.com/crepuscule_video.mp4",
-    "Bio": "Mélancolie incarnée, peignant le ciel de nuances sombres et profondes, capturant l'instant fugace où le jour cède la place à la nuit."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_crepuscule_video.mp4",
+    "Description": "Crépuscule en lambeaux: le ciel saigne de pourpre et la mémoire s'enfonce; chaque respiration est un adieu magnifié.",
+    "Bio": "Mélancolie douce"
   },
   {
     "Name": "Adam_D'H7 | Équinoxe",
-    "Url Thumb": "https://example.com/equinoxe_thumb.jpg",
-    "Url Video": "https://example.com/equinoxe_video.mp4",
-    "Bio": "Gardien de l'équilibre, célébrant l'harmonie entre la lumière et l'ombre, le jour et la nuit, dans une danse éternelle de complémentarité."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_equinoxe_2_video.mp4",
+    "Description": "Au faîte de l'équilibre, le cœur oscille comme un astrolabe; amour et solitude se heurtent en silence alchimique.",
+    "Bio": "Harmonie jour-nuit"
   },
   {
     "Name": "Adam_D'H7 | Solstice",
-    "Url Thumb": "https://example.com/solstice_thumb.jpg",
-    "Url Video": "https://example.com/solstice_video.mp4",
-    "Bio": "Messager des saisons, annonçant les changements imminents, les renaissances et les transitions, dans un cycle infini de transformation."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_solstice_2_video.mp4",
+    "Description": "Solstice igné: la nuit étreint le soleil; nos promesses prennent la forme de constellations restées vivantes.",
+    "Bio": "Messager saisonnier"
   },
   {
     "Name": "Adam_D'H7 | Cascade",
-    "Url Thumb": "https://example.com/cascade_thumb.jpg",
-    "Url Video": "https://example.com/cascade_video.mp4",
-    "Bio": "Flux vital, déversant une énergie pure et rafraîchissante, purifiant les âmes et régénérant les esprits avec la force impétueuse de la nature."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_cascade_video.mp4",
+    "Description": "Cascade: le vertige liquide emporte les regrets; chaque goutte porte un nom ancien et lave les plaies de l'âme.",
+    "Bio": "Flux vital"
   },
   {
     "Name": "Adam_D'H7 | Labyrinthe",
-    "Url Thumb": "https://example.com/labyrinthe_thumb.jpg",
-    "Url Video": "https://example.com/labyrinthe_video.mp4",
-    "Bio": "Cartographe de l'âme, guidant les voyageurs égarés à travers les méandres de l'inconscient, les dédales de la pensée, jusqu'à la découverte de soi."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_labyrinthe_video.mp4",
+    "Description": "Dédale d'os et de mémoire; j'y perds et retrouve mes anciens noms. Chaque couloir est une rime qui n'a pas vieilli.",
+    "Bio": "Guide intérieur"
   },
   {
     "Name": "Adam_D'H7 | Phénix",
-    "Url Thumb": "https://example.com/phenix_thumb.jpg",
-    "Url Video": "https://example.com/phenix_video.mp4",
-    "Bio": "Symbole de résilience, renaissant de ses cendres avec une force renouvelée, incarnant l'espoir et la promesse d'un nouveau départ après chaque épreuve."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_phenix_video.mp4",
+    "Description": "Phénix: cendres qui chantent; je renaîs en cithare, brûlant les promesses mortes pour forger des serments de feu.",
+    "Bio": "Symbole renaissant"
   },
   {
     "Name": "Adam_D'H7 | Rhapsodie",
-    "Url Thumb": "https://example.com/rhapsodie_thumb.jpg",
-    "Url Video": "https://example.com/rhapsodie_video.mp4",
-    "Bio": "Compositeur d'émotions, tissant des mélodies complexes et envoûtantes, capturant l'essence même de la joie, de la tristesse, de l'amour et de la passion."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_rhapsodie_video.mp4",
+    "Description": "Rhapsodie: des accords de douleur et d'extase tissent un manteau qui nous rend invincibles pour un instant.",
+    "Bio": "Compositeur d'émotions"
   },
   {
     "Name": "Adam_D'H7 | Nébuleuse",
-    "Url Thumb": "https://example.com/nebuleuse_thumb.jpg",
-    "Url Video": "https://example.com/nebuleuse_video.mp4",
-    "Bio": "Explorateur des galaxies, naviguant à travers les constellations de rêves et découvrant des mondes insoupçonnés."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_nebuleuse_video.mp4",
+    "Description": "Nébuleuse: nos désirs s'agrègent en poussière stellaire; il suffit d'un souffle pour que naissent des mondes entiers.",
+    "Bio": "Explorateur galactique"
   },
   {
     "Name": "Adam_D'H7 | Solstice",
-    "Url Thumb": "https://example.com/solstice_thumb.jpg",
-    "Url Video": "https://example.com/solstice_video.mp4",
-    "Bio": "Célébrateur des saisons, marquant le passage du temps avec des rituels poétiques et des mélodies envoûtantes."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_solstice_3_video.mp4",
+    "Description": "Le solstice scande une promesse: même la nuit la plus dense garde en elle un germe de jour qui se dresse.",
+    "Bio": "Célébrateur saisonnier"
   },
   {
     "Name": "Adam_D'H7 | Abysse",
-    "Url Thumb": "https://example.com/abysse_thumb.jpg",
-    "Url Video": "https://example.com/abysse_video.mp4",
-    "Bio": "Plongeur des profondeurs, explorant les mystères cachés au fond des océans et révélant les secrets enfouis."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_abysse_video.mp4",
+    "Description": "Abysse: le cœur se bouchonne de silence; j'y plonge et découvre des langues marines qui parlent de nostalgie.",
+    "Bio": "Plongeur profond"
   },
   {
     "Name": "Adam_D'H7 | Création",
-    "Url Thumb": "https://example.com/creation_thumb.jpg",
-    "Url Video": "https://example.com/creation_video.mp4",
-    "Bio": "Artisan de l'univers, façonnant des réalités alternatives et donnant vie à des visions extraordinaires."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_creation_video.mp4",
+    "Description": "Création: j'assemble des fragments d'âme pour bâtir une cité de mots — chaque pierre respire une idée neuve.",
+    "Bio": "Faiseur d'univers"
   },
   {
     "Name": "Adam_D'H7 | Énigme",
-    "Url Thumb": "https://example.com/enigme_thumb.jpg",
-    "Url Video": "https://example.com/enigme_video.mp4",
-    "Bio": "Résolveur de mystères, déchiffrant les codes secrets de l'existence et révélant les vérités cachées derrière les apparences."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_enigme_video.mp4",
+    "Description": "Énigme: chaque mot est une serrure; j'essaie des clés de lune et j'entends la serrure soupirer.",
+    "Bio": "Résolveur mystère"
   },
   {
     "Name": "Adam_D'H7 | Incandescence",
-    "Url Thumb": "https://example.com/incandescence_thumb.jpg",
-    "Url Video": "https://example.com/incandescence_video.mp4",
-    "Bio": "Porteur de lumière, illuminant les ténèbres de son étincelle créatrice et réchauffant les cœurs de sa passion."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_incandescence_video.mp4",
+    "Description": "Incandescence: une braise chante dans la gorge; elle consume le superflu et révèle l'essentiel, rudimental et clair.",
+    "Bio": "Porteur de lumière"
   },
   {
     "Name": "Adam_D'H7 | Sillage",
-    "Url Thumb": "https://example.com/sillage_thumb.jpg",
-    "Url Video": "https://example.com/sillage_video.mp4",
-    "Bio": "Navigateur des âmes, laissant derrière lui un parfum de mystère et une trace indélébile dans le cœur de ceux qu'il croise."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_sillage_video.mp4",
+    "Description": "Sillage: derrière nous, des parfums d'antan persistent; la nostalgie est une encre qui marque le monde.",
+    "Bio": "Trace durable"
   },
   {
     "Name": "Adam_D'H7 | Mélancolie",
-    "Url Thumb": "https://example.com/melancolie_thumb.jpg",
-    "Url Video": "https://example.com/melancolie_video.mp4",
-    "Bio": "Muse des songes, tissant des rêveries nostalgiques et des harmonies douces-amères qui enchantent les esprits sensibles."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_melancolie_video.mp4",
+    "Description": "Mélancolie: pluie intérieure, lente et sucrée; les heures s'étirent comme des chats et boivent nos promesses.",
+    "Bio": "Muse nostalgique"
   },
   {
     "Name": "Adam_D'H7 | Révérence",
-    "Url Thumb": "https://example.com/reverence_thumb.jpg",
-    "Url Video": "https://example.com/reverence_video.mp4",
-    "Bio": "Gardien des traditions, honorant le passé et inspirant l'avenir avec un respect profond et une sagesse intemporelle."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_reverence_video.mp4",
+    "Description": "Révérence: je plie les souvenirs comme on plie un origami, respectant chaque pli, chaque pli un secret révélé.",
+    "Bio": "Garde tradition"
   },
   {
     "Name": "Adam_D'H7 | Quintessence",
-    "Url Thumb": "https://example.com/quintessence_thumb.jpg",
-    "Url Video": "https://example.com/quintessence_video.mp4",
-    "Bio": "Alchimiste des mots, distillant l'essence même de la beauté et transformant les idées en œuvres d'art éternelles."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_quintessence_video.mp4",
+    "Description": "Quintessence: extrait pur du jour; une goutte qui contient l'océan et tout ce qu'il tait.",
+    "Bio": "Alchimiste verbal"
   },
   {
     "Name": "Adam_D'H7 | Zéphyr",
-    "Url Thumb": "https://example.com/zephyr_thumb.jpg",
-    "Url Video": "https://example.com/zephyr_video.mp4",
-    "Bio": "Souffle de l'été, apportant la douceur et la légèreté dans un monde en quête de renouveau."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_zephyr_video.mp4",
+    "Description": "Zéphyr: souffle qui effleure l'âme; il apporte des nouvelles d'été et des promesses effilochées.",
+    "Bio": "Vent d'été"
   },
   {
     "Name": "Adam_D'H7 | Incandescence",
-    "Url Thumb": "https://example.com/incandescence_thumb.jpg",
-    "Url Video": "https://example.com/incandescence_video.mp4",
-    "Bio": "Porteur de lumière, illuminant les esprits et réchauffant les cœurs avec une passion ardente."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_incandescence_2_video.mp4",
+    "Description": "Feu sourd: la passion ronge comme une enclume aimante; elle forge les âmes en acier tendre.",
+    "Bio": "Feu intérieur"
   },
   {
     "Name": "Adam_D'H7 | Mélancolie",
-    "Url Thumb": "https://example.com/melancolie_thumb.jpg",
-    "Url Video": "https://example.com/melancolie_video.mp4",
-    "Bio": "Muse des âmes perdues, capturant la beauté de la tristesse et transformant le chagrin en art."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_melancolie_2_video.mp4",
+    "Description": "Mélancolie saphirine: chaque souvenir est une pierre froide que l'on porte près du cœur pour la réchauffer.",
+    "Bio": "Âme mélancolique"
   },
   {
     "Name": "Adam_D'H7 | Quête",
-    "Url Thumb": "https://example.com/quete_thumb.jpg",
-    "Url Video": "https://example.com/quete_video.mp4",
-    "Bio": "Voyageur infatigable, explorant les confins de l'imagination et découvrant des trésors cachés au plus profond de l'âme."
-  },
-  {
-    "Name": "Adam_D'H7 | Rêverie",
-    "Url Thumb": "https://example.com/reverie_thumb.jpg",
-    "Url Video": "https://example.com/reverie_video.mp4",
-    "Bio": "Tisseur de songes, tissant des histoires fantastiques qui transportent les esprits dans des contrées lointaines et merveilleuses."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_quete_video.mp4",
+    "Description": "Quête infinie: je poursuis un écho ancien; il m'entraîne à travers des forêts d'oubli et des clairières de lumière.",
+    "Bio": "Voyageur infatigable"
   },
   {
     "Name": "Adam_D'H7 | Aurora",
-    "Url Thumb": "https://example.com/aurora_thumb.jpg",
-    "Url Video": "https://example.com/aurora_video.mp4",
-    "Bio": "Peintre de l'aube, colorant l'horizon de teintes infinies et de promesses renouvelées."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_aurora_video.mp4",
+    "Description": "Aurora: l'aube arrache de nouveaux pigments au ciel; elle peint nos fautes en or marginal.",
+    "Bio": "Peintre d'aube"
   },
   {
     "Name": "Adam_D'H7 | Silencieux",
-    "Url Thumb": "https://example.com/silencieux_thumb.jpg",
-    "Url Video": "https://example.com/silencieux_video.mp4",
-    "Bio": "Gardien des secrets, écoutant les murmures du vent et les confessions de la nuit."
-  },
-  {
-    "Name": "Adam_D'H7 | Incandescence",
-    "Url Thumb": "https://example.com/incandescence_thumb.jpg",
-    "Url Video": "https://example.com/incandescence_video.mp4",
-    "Bio": "Forgeur d'étincelles, embrasant les cœurs de passions vives et de désirs ardents."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_silencieux_video.mp4",
+    "Description": "Silence orfèvre: dans le creux du mutisme, naissent des verdicts doux et des consentements sans bruit.",
+    "Bio": "Gardien silencieux"
   },
   {
     "Name": "Adam_D'H7 | Labyrinthique",
-    "Url Thumb": "https://example.com/labyrinthique_thumb.jpg",
-    "Url Video": "https://example.com/labyrinthique_video.mp4",
-    "Bio": "Navigateur des méandres, explorant les recoins de l'âme et les dédales de l'esprit."
-  },
-  {
-    "Name": "Adam_D'H7 | Mélancolie",
-    "Url Thumb": "https://example.com/melancolie_thumb.jpg",
-    "Url Video": "https://example.com/melancolie_video.mp4",
-    "Bio": "Chroniqueur des regrets, transformant les souvenirs en poèmes et les larmes en perles."
+    "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
+    "Url Video": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/adam_dh7_labyrinthique_video.mp4",
+    "Description": "Labyrinthique: chaque détour révèle une vérité masqueradée; je marche en découvrant des altitudes d'âme.",
+    "Bio": "Navigateur tortueux"
   },
   {
     "Name": "Adam_D'H7 | Éphémère",
-    "Url Thumb": "https://example.com/ephemere_thumb.jpg",
     "Catégorie": "Poème",
-    "Description": "Éphémère, comme la rosée du matin, une beauté fugace qui se dérobe à l'aube, un souvenir impalpable gravé dans le cœur.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Chasseur d'instants, capturant l'essence de l'éphémère pour l'éternité."
+    "Description": "Éphémère: rosée tatouée sur la lèvre du matin; toi et moi, deux comètes qui ne se croisent qu'une fois.",
+    "Bio": "Instant fugace"
   },
   {
     "Name": "Adam_D'H7 | Ineffable",
-    "Url Thumb": "https://example.com/ineffable_thumb.jpg",
     "Catégorie": "Poésie",
-    "Description": "Ineffable, ce qui dépasse les mots, un sentiment si profond qu'il se perd dans le silence de l'âme, une vérité indicible.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Explorateur des silences, traduisant l'ineffable en émotions palpables."
+    "Description": "Ineffable: mot interdit au dictionnaire commun; c'est l'ouragan qui sourit et qui sait nommer l'indicible.",
+    "Bio": "Au-delà des mots"
   },
   {
     "Name": "Adam_D'H7 | Sempiternel",
-    "Url Thumb": "https://example.com/sempiternel_thumb.jpg",
     "Catégorie": "Réflexion",
-    "Description": "Sempiternel, une flamme qui brûle à jamais, un amour qui défie le temps, une vérité immuable ancrée dans l'éternité.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Gardien de l'éternité, préservant les flammes de l'espoir et de la vérité."
+    "Description": "Sempiternel: la flamme qui ne cède pas; elle veille, obstinée, et grave des runes dans la chair du temps.",
+    "Bio": "Flamme éternelle"
   },
   {
     "Name": "Adam_D'H7 | Ataraxie",
-    "Url Thumb": "https://example.com/ataraxie_thumb.jpg",
     "Catégorie": "Philosophie",
-    "Description": "Ataraxie, la sérénité de l'âme, l'absence de trouble, un état de paix intérieure où les tempêtes de la vie ne font que murmurer.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Chercheur de paix, guidant les âmes vers l'ataraxie, un havre de sérénité au cœur du chaos."
+    "Description": "Ataraxie: lac immobile où toutes les tempêtes se dissolvent; j'y jette mes colères, elles se transforment en cristal.",
+    "Bio": "Paix intérieure"
   },
-    {
+  {
     "Name": "Adam_D'H7 | Songe",
-    "Url Thumb": "https://example.com/songe_thumb.jpg",
     "Catégorie": "Rêverie",
-    "Description": "Songe, une porte ouverte sur l'imaginaire, un voyage au-delà des frontières du réel, où les rêves prennent vie et les chimères dansent.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Architecte de rêves, bâtissant des mondes oniriques où tout devient possible."
+    "Description": "Songe: porte d'ivoire; je franchis et je redeviens enfant, ébahi par l'ampleur des possibles oubliés.",
+    "Bio": "Architecte onirique"
   },
   {
     "Name": "Adam_D'H7 | Luminescence",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Luminescence, une lueur intérieure qui irradie l'âme, illuminant les recoins les plus sombres de l'existence.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Porteur de lumière, guidant les âmes perdues à travers les ténèbres, leur montrant le chemin vers la vérité et la rédemption."
+    "Description": "Luminescence: la lueur des choses fragiles; elle révèle des routes secrètes et des contrées d'espérance.",
+    "Bio": "Lumière intérieure"
   },
   {
     "Name": "Adam_D'H7 | Mellifluous",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Mellifluous, une douceur enivrante qui caresse l'âme, un nectar divin distillé par les dieux de l'harmonie.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Alchimiste des sons, transformant les vibrations en émotions et les murmures en symphonies."
+    "Description": "Mellifluous: voix de miel qui façonne des rivières de soie; elle berce les colères en les rendant douces.",
+    "Bio": "Sonorité douce"
   },
   {
     "Name": "Adam_D'H7 | Éphémère",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Éphémère, la beauté fugace d'un instant suspendu, une étoile filante dans le firmament de l'existence.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Chasseur d'instants, capturant la quintessence du présent et les souvenirs impalpables du passé."
+    "Description": "Éphémère: souffle qui passe et qui laisse une empreinte comme un baiser sur la joue de l'univers.",
+    "Bio": "Beauté fugace"
   },
   {
     "Name": "Adam_D'H7 | Immuable",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Immuable, la constance d'un rocher face aux tempêtes, l'éternité gravée dans la pierre philosophale du temps.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Gardien de la stabilité, ancré dans le présent, contemplant l'éternité avec sérénité et sagesse."
+    "Description": "Immuable: ancre dans le flot; malgré la marée, le serment demeure, taillé dans la pierre des vieux jours.",
+    "Bio": "Rocher immobile"
   },
   {
     "Name": "Adam_D'H7 | Onirique",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Onirique, un voyage au cœur des rêves, où la réalité se dissout dans l'imaginaire et les chimères prennent vie.",
-    "Url Video": "",
-    "Bio": "Explorateur des songes, naviguant à travers les méandres de l'inconscient et les paysages fantastiques de l'esprit."
-  },
-  {
-    "Name": "Adam_D'H7 | Labyrinthique",
     "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Labyrinthique, un dédale de chemins tortueux, une quête initiatique au cœur de soi, où chaque détour révèle un mystère.",
     "Url Video": "",
-    "Bio": "Cartographe de l'âme, traçant les itinéraires complexes de l'existence et les méandres insondables de la conscience."
+    "Description": "Onirique: l'horizon se plie en papillon; je cueille des éclats de nuit pour fabriquer des aurores personnelles.",
+    "Bio": "Rêveur éveillé"
   },
   {
     "Name": "Adam_D'H7 | Diaphane",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Diaphane, une transparence cristalline, une pureté immaculée qui laisse entrevoir la lumière divine au-delà des apparences.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Artisan de la clarté, révélant la beauté cachée des choses et la vérité lumineuse qui se dissimule derrière les illusions."
+    "Description": "Diaphane: voile d'air qui laisse filtrer une lumière d'ancêtres; nous marchons dedans, légers et sacrés.",
+    "Bio": "Clarté fragile"
   },
   {
     "Name": "Adam_D'H7 | Éloquent",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Éloquent, un verbe flamboyant qui captive les esprits, une symphonie de mots qui résonne au plus profond de l'être.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Orateur inspiré, maniant les mots avec maestria et transmettant la sagesse avec passion et conviction."
+    "Description": "Éloquent: le mot qui pulse et qui frappe comme un tambour; il délivre la vérité avec une rage douce.",
+    "Bio": "Parole inspirée"
   },
   {
     "Name": "Adam_D'H7 | Insidieux",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Insidieux, une menace invisible qui se faufile dans l'ombre, un poison subtil qui corrompt l'âme et pervertit l'esprit.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Guetteur vigilant, démasquant les illusions et les mensonges, protégeant la vérité et la justice contre les forces obscures."
+    "Description": "Insidieux: ombre qui s'insinue et sème des ronces; garde tes rêves près du cœur, ils sont précieux et fragiles.",
+    "Bio": "Danger sournois"
   },
   {
     "Name": "Adam_D'H7 | Fulgurant",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Fulgurant, un éclair de génie qui illumine l'obscurité, une révélation soudaine qui bouleverse les certitudes et ouvre de nouvelles perspectives.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Chercheur de lumière, explorant les mystères de l'univers et les recoins insondables de l'esprit, en quête de la vérité ultime."
+    "Description": "Fulgurant: pensée qui frappe comme l'éclair; elle déconstruit l'ancien monde et annonce le possible immédiat.",
+    "Bio": "Éclair brillant"
   },
   {
     "Name": "Adam_D'H7 | Éthéré",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Éthéré, une légèreté aérienne, une grâce impalpable qui transcende la matière et élève l'âme vers les sphères célestes.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Danseur cosmique, évoluant avec grâce et légèreté dans le ballet infini de l'univers, en harmonie avec les forces cosmiques."
+    "Description": "Éthéré: danse des atomes, souffle d'anges; la réalité devient fine comme une feuille et nous la lisons à l'envers.",
+    "Bio": "Aérien subtil"
   },
   {
     "Name": "Adam_D'H7 | Opulent",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Opulent, une richesse exubérante, un luxe fastueux qui éblouit les sens et exalte les passions.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Collectionneur de merveilles, amassant les trésors de la terre et les joyaux de l'esprit, célébrant la beauté et l'abondance."
+    "Description": "Opulent: banquet des sens où la tristesse s'habille d'or pour mieux fondre en larme délicate.",
+    "Bio": "Luxe exubérant"
   },
   {
     "Name": "Adam_D'H7 | Acerbe",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Acerbe, une amertume corrosive, une critique cinglante qui dénonce les injustices et révèle les hypocrisies.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Justicier implacable, démasquant les imposteurs et les corrompus, défendant la vérité et la justice avec vigueur et détermination."
+    "Description": "Acerbe: langue acérée qui taille les mensonges; la colère devient une langue d'argent polie par l'injustice.",
+    "Bio": "Verbe acerbe"
   },
   {
     "Name": "Adam_D'H7 | Taciturne",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Taciturne, un silence éloquent, une contemplation intérieure qui révèle la sagesse et la profondeur de l'âme.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Observateur attentif, méditant sur les mystères de l'existence et les paradoxes de la condition humaine, en quête de la vérité ultime."
+    "Description": "Taciturne: solitude décorée d'étoiles; la parole se raréfie et chaque mot pèse comme un trésor.",
+    "Bio": "Silence profond"
   },
   {
     "Name": "Adam_D'H7 | Volubile",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Volubile, un flot de paroles intarissable, une conversation passionnante qui captive l'auditoire et stimule l'esprit.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Conteur infatigable, partageant les histoires du monde et les légendes de l'âme, en transmettant la connaissance et la sagesse."
+    "Description": "Volubile: torrent de voix qui repeuple la nuit; l'excès revêt parfois l'habit de la vérité.",
+    "Bio": "Parole vive"
   },
   {
     "Name": "Adam_D'H7 | Lugubre",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Lugubre, une atmosphère sombre et oppressante, un présage funeste qui annonce le malheur et la désolation.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Sentinelle des ténèbres, veillant sur les frontières du monde des vivants et du royaume des morts, en protégeant l'équilibre cosmique."
+    "Description": "Lugubre: marche funèbre d'une ville en hiver; même les pierres pleurent et les toits se retirent.",
+    "Bio": "Ombre funeste"
   },
-   {
+  {
     "Name": "Adam_D'H7 | Sempiternel",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Sempiternel, une durée infinie, une existence sans fin qui transcende le temps et l'espace.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Gardien du temps, préservant la mémoire du passé et anticipant l'avenir, en maintenant l'équilibre de l'univers."
+    "Description": "Sempiternel: l'écho qui revient toujours; je l'écoute comme une promesse ancienne qui ne cède jamais.",
+    "Bio": "Durée infinie"
   },
   {
     "Name": "Adam_D'H7 | Alacrité",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Alacrité, une vivacité joyeuse, une énergie débordante qui illumine l'âme et enchante le cœur.",
-    "Url Video": "",
-    "Bio": "Porteur de lumière, répandant la joie et l'optimisme, en inspirant les autres à vivre pleinement leur vie."
-  },
-  {
-    "Name": "Adam_D'H7 | Incandescence",
     "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'incandescence, une lueur intérieure qui embrase l'âme, un feu sacré qui consume les ténèbres et illumine le chemin de la connaissance.",
     "Url Video": "",
-    "Bio": "Artisan de lumière, forgeant l'espoir dans les ténèbres et insufflant la flamme de la passion dans les cœurs."
-  },
-  {
-    "Name": "Adam_D'H7 | Éphémère",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Éphémère, la beauté fugace d'un instant suspendu dans le temps, une brève étincelle qui illumine l'éternité et laisse une empreinte indélébile dans la mémoire.",
-    "Url Video": "",
-    "Bio": "Chasseur d'instants, capturant la magie du présent et célébrant la fragilité de l'existence."
+    "Description": "Alacrité: joie qui claque comme une brindille; elle allume des sourires en pleine tempête.",
+    "Bio": "Joie vive"
   },
   {
     "Name": "Adam_D'H7 | Impavide",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Impavide, le courage indomptable face à l'adversité, une force intérieure qui transcende la peur et guide vers la victoire.",
-    "Url Video": "",
-    "Bio": "Guerrier de l'âme, affrontant les démons intérieurs et surmontant les obstacles avec détermination et résilience."
-  },
-  {
-    "Name": "Adam_D'H7 | Mélancolie",
     "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La mélancolie, une douce tristesse qui berce l'âme, un voile nostalgique qui enveloppe les souvenirs et révèle la beauté des choses perdues.",
     "Url Video": "",
-    "Bio": "Poète des regrets, explorant les méandres du cœur et sublimant la douleur en art."
-  },
-  {
-    "Name": "Adam_D'H7 | Quête",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La quête, un voyage initiatique vers la vérité et la sagesse, une exploration de soi et du monde à la recherche du sens de l'existence.",
-    "Url Video": "",
-    "Bio": "Voyageur infatigable, parcourant les sentiers de la connaissance et défiant les limites de l'esprit."
-  },
-  {
-    "Name": "Adam_D'H7 | Rêverie",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La rêverie, une évasion onirique vers des mondes imaginaires, un refuge pour l'âme où les rêves prennent vie et les possibles se réalisent.",
-    "Url Video": "",
-    "Bio": "Architecte de l'imaginaire, construisant des châteaux en Espagne et donnant forme aux chimères."
-  },
-  {
-    "Name": "Adam_D'H7 | Sérénité",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La sérénité, un état de calme intérieur et de paix profonde, une harmonie entre l'âme et le corps qui permet de contempler le monde avec gratitude et émerveillement.",
-    "Url Video": "",
-    "Bio": "Maître zen, cultivant la pleine conscience et répandant la sagesse et la compassion autour de lui."
-  },
-  {
-    "Name": "Adam_D'H7 | Solitude",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La solitude, un moment de recueillement et d'introspection, une occasion de se connecter à soi-même et de trouver la force et l'inspiration dans le silence et le calme.",
-    "Url Video": "",
-    "Bio": "Ermite moderne, explorant les profondeurs de l'âme et trouvant la plénitude dans la simplicité et l'authenticité."
-  },
-  {
-    "Name": "Adam_D'H7 | Transcendance",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La transcendance, un dépassement de soi et des limites de la condition humaine, une ascension vers des sphères supérieures de conscience et de spiritualité.",
-    "Url Video": "",
-    "Bio": "Alpiniste de l'esprit, gravissant les sommets de la connaissance et aspirant à l'illumination."
-  },
-  {
-    "Name": "Adam_D'H7 | Utopie",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'utopie, un idéal de société parfaite et harmonieuse, un rêve de justice et de fraternité qui guide l'action et inspire le changement.",
-    "Url Video": "",
-    "Bio": "Visionnaire engagé, œuvrant pour un monde meilleur et semant les graines de l'espoir et de la solidarité."
-  },
-  {
-    "Name": "Adam_D'H7 | Vérité",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La vérité, une quête incessante de la réalité et de la connaissance, une investigation rigoureuse et objective qui permet de dissiper les illusions et d'accéder à la sagesse.",
-    "Url Video": "",
-    "Bio": "Chercheur infatigable, traquant les mensonges et les faux-semblants et révélant la lumière de la vérité au grand jour."
-  },
-  {
-    "Name": "Adam_D'H7 | Vulnérabilité",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La vulnérabilité, une ouverture du cœur et une acceptation de ses faiblesses, une force qui permet de se connecter aux autres avec authenticité et empathie.",
-    "Url Video": "",
-    "Bio": "Coeur à vif, partageant ses émotions et ses expériences avec courage et sincérité."
-  },
-  {
-    "Name": "Adam_D'H7 | Zénith",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Le zénith, le point culminant d'une existence, l'apogée d'une passion, le moment où l'on atteint son plein potentiel et où l'on rayonne de toute sa splendeur.",
-    "Url Video": "",
-    "Bio": "Étoile brillante, illuminant le ciel de son talent et inspirant les autres à atteindre leurs propres sommets."
-  },
-  {
-    "Name": "Adam_D'H7 | Immuable",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Immuable, persévérance face aux mutations du temps, une force tranquille qui résiste à l'érosion et témoigne d'une fidélité inébranlable à ses principes.",
-    "Url Video": "",
-    "Bio": "Pilier de sagesse, ancré dans ses convictions et dispensant un savoir ancestral aux générations futures."
-  },
-  {
-    "Name": "Adam_D'H7 | Perspicacité",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "La perspicacité, une acuité intellectuelle qui perce les illusions et révèle les vérités cachées, une capacité à comprendre les enjeux complexes et à anticiper les conséquences.",
-    "Url Video": "",
-    "Bio": "Analyste clairvoyant, décryptant les codes du monde et éclairant les zones d'ombre avec une intelligence aiguisée."
-  },
-  {
-    "Name": "Adam_D'H7 | Effervescence",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'effervescence, une énergie débordante qui anime l'esprit et le corps, une vitalité contagieuse qui stimule la créativité et suscite l'enthousiasme.",
-    "Url Video": "",
-    "Bio": "Dynamo créative, insufflant son énergie positive dans tous ses projets et inspirant les autres à se dépasser."
-  },
-  {
-    "Name": "Adam_D'H7 | Introspection",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'introspection, une plongée au plus profond de soi, une exploration des méandres de la conscience pour débusquer les vérités enfouies et les aspirations profondes.",
-    "Url Video": "",
-    "Bio": "Spéléologue de l'âme, explorant les cavernes de l'inconscient et rapportant à la lumière des trésors insoupçonnés."
-  },
-  {
-    "Name": "Adam_D'H7 | Abyssal",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Abyssal, une plongée vertigineuse dans les profondeurs de l'âme, où les ténèbres côtoient la lumière et où les secrets enfouis refont surface.",
-    "Url Video": "",
-    "Bio": "Explorateur des profondeurs, naviguant à travers les méandres de l'inconscient et les abysses de l'être."
-  },
-  {
-    "Name": "Adam_D'H7 | Anamnèse",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'anamnèse, un voyage introspectif au cœur des souvenirs enfouis, une quête de soi à travers les méandres du temps. Chaque réminiscence est une étoile scintillante dans la nuit de l'oubli, illuminant le chemin vers la vérité intérieure.",
-    "Url Video": "",
-    "Bio": "Archéologue de l'âme, déterrant les fragments du passé pour reconstruire le puzzle de l'identité."
-  },
-  {
-    "Name": "Adam_D'H7 | Mellifluous",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Un murmure melliflu, une mélodie suave qui caresse l'âme et apaise les tourments. Une symphonie de douceur et d'harmonie, où chaque note est une invitation à la rêverie et à la contemplation.",
-    "Url Video": "",
-    "Bio": "Poète des sons, tissant des harmonies délicates pour enchanter le cœur et l'esprit."
-  },
-  {
-    "Name": "Adam_D'H7 | Éthéré",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Une présence éthérée, une aura impalpable qui flotte dans l'air comme un souffle léger. Une vision céleste, un reflet de l'immortalité qui transcende les limites du tangible.",
-    "Url Video": "",
-    "Bio": "Navigateur des limbes, explorant les dimensions invisibles et les mystères de l'au-delà."
-  },
-  {
-    "Name": "Adam_D'H7 | Ineffable",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Réflexions",
-    "Description": "L'ineffable beauté d'un crépuscule embrasant l'horizon, un spectacle qui transcende les mots et éveille l'âme à la contemplation de l'infini.",
-    "Url Video": "",
-    "Bio": "Contemplateur de l'indicible, cherchant à capturer l'essence des moments qui échappent à la description."
-  },
-  {
-    "Name": "Adam_D'H7 | Mélancolie stellaire",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poésie",
-    "Description": "Une mélancolie stellaire, empreinte de nostalgie cosmique, où les constellations murmurent des secrets oubliés et les âmes errantes cherchent un réconfort dans l'immensité de l'univers.",
-    "Url Video": "",
-    "Bio": "Rêveur cosmique, naviguant entre les galaxies de l'imagination et les nébuleuses de l'introspection."
-  },
-  {
-    "Name": "Adam_D'H7 | Quête d'éternité",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Philosophie",
-    "Description": "La quête d'éternité, une odyssée spirituelle à travers les méandres du temps, où chaque instant devient une pierre précieuse et chaque souvenir un fragment d'immortalité.",
-    "Url Video": "",
-    "Bio": "Pèlerin de l'absolu, explorant les frontières de l'existence et les mystères de l'immortalité."
-  },
-  {
-    "Name": "Adam_D'H7 | Évanescence",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'évanescence d'un souvenir, une chimère diaphane qui se dérobe à la préhension. Un voile impalpable sur les méandres de l'existence, où les réminiscences s'estompent en une brume opalescente. L'âme, tel un navire à la dérive, vogue sur l'océan insondable de l'oubli.",
-    "Url Video": "",
-    "Bio": "Poète de l'éphémère, capturant les instants fugaces avant qu'ils ne sombrent dans l'abîme du temps."
-  },
-  {
-    "Name": "Adam_D'H7 | Mélancolie Saphirine",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Une mélancolie saphirine, un chagrin d'azur qui irradie l'âme d'une douce tristesse. Les larmes, telles des perles précieuses, ruissellent sur les joues, témoignant d'une blessure intérieure, d'une nostalgie lancinante pour un paradis perdu. Le cœur, tel un oiseau blessé, aspire à la quiétude et à la sérénité.",
-    "Url Video": "",
-    "Bio": "Explorateur des émotions profondes, naviguant sur les flots tumultueux de la mélancolie et de l'espoir."
-  },
-  {
-    "Name": "Adam_D'H7 | L'Ombre de l'Aporie",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'ombre insidieuse de l'aporie, un labyrinthe intellectuel où les certitudes s'effondrent et où les questions persistent sans réponses. Une quête incessante de la vérité, un cheminement ardu semé d'embûches et de contradictions. L'esprit, tel un funambule, oscille entre raison et intuition, cherchant à percer les mystères de l'univers.",
-    "Url Video": "",
-    "Bio": "Philosophe en herbe, confronté aux énigmes de l'existence et aux paradoxes de la condition humaine."
-  },
-  {
-    "Name": "Adam_D'H7 | Fugacité",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Tel un songe évanescent,\nLa vie s'écoule, un instant volé.\nL'amour, chimère incandescente,\nBrûle nos cœurs, puis s'est envolé.",
-    "Url Video": "",
-    "Bio": "Poète éphémère, capturant l'essence fugace de l'existence."
-  },
-  {
-    "Name": "Adam_D'H7 | Mélancolie",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Dans les méandres de l'âme,\nGerme un chagrin, une douce amertume.\nL'amour perdu, une flamme,\nQui consume l'espoir, en un ultime murmure.",
-    "Url Video": "",
-    "Bio": "Âme mélancolique, hantée par les échos du passé et les regrets éternels."
-  },
-  {
-    "Name": "Adam_D'H7 | Énigme",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'existence, un labyrinthe obscur,\nOù chaque pas révèle un nouveau mystère.\nL'amour, un philtre, un leurre sûr,\nQui enivre les sens, puis les désespère.",
-    "Url Video": "",
-    "Bio": "Chercheur de vérité, explorant les confins de l'inconnu et les énigmes de l'être."
-  },
-  {
-    "Name": "Adam_D'H7 | Chimère",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'amour, une chimère insaisissable,\nUn mirage ardent, une douce folie.\nLa vie, une quête inlassable,\nVers un idéal, une vaine utopie.",
-    "Url Video": "",
-    "Bio": "Rêveur impénitent, poursuivant les chimères et les illusions de l'esprit."
-  },
-  {
-    "Name": "Adam_D'H7 | Abysse",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Au fond de l'abysse, le néant nous guette,\nL'amour, un phare fragile, une lueur ténue.\nLa vie, un combat, une tempête,\nOù l'espoir s'éteint, la flamme diminue.",
-    "Url Video": "",
-    "Bio": "Explorateur des profondeurs, défiant les abîmes de l'âme et les gouffres de l'existence."
-  },
-  {
-    "Name": "Adam_D'H7 | Spleen",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Un spleen profond étreint mon cœur,\nL'amour s'est enfui, laissant un vide immense.\nLa vie s'écoule, sans saveur,\nUn long supplice, une lente démence.",
-    "Url Video": "",
-    "Bio": "Âme torturée, proie du spleen et des affres de la mélancolie."
-  },
-  {
-    "Name": "Adam_D'H7 | Incandescence",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "L'amour, une flamme incandescente,\nQui brûle nos cœurs, sans jamais s'éteindre.\nLa vie, une danse effervescente,\nOù les passions s'allument, sans se contraindre.",
-    "Url Video": "",
-    "Bio": "Esprit ardent, embrasant le monde de sa passion et de son incandescence."
-  },
-  {
-    "Name": "Adam_D'H7 | Évanescence",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Tel un souffle léger, une brise marine,\nL'amour s'évanouit, laissant un souvenir doux.\nLa vie, une beauté clandestine,\nQui se révèle à ceux qui savent être fous.",
-    "Url Video": "",
-    "Bio": "Observateur attentif, contemplant la beauté éphémère du monde et la fragilité de l'existence."
-  },
-  {
-    "Name": "Adam_D'H7 | Réminiscence",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Dans les méandres de la mémoire,\nResurgissent des souvenirs enfouis.\nL'amour, une douce amatoire,\nQui hante nos nuits, et nos jours aussi.",
-    "Url Video": "",
-    "Bio": "Gardien de la mémoire, explorant les labyrinthes du passé et les réminiscences de l'âme."
-  },
-  {
-    "Name": "Adam_D'H7 | Catharsis",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
-    "Catégorie": "Poste",
-    "Description": "Par les larmes versées, la douleur s'éloigne,\nL'amour renaît, purifié et serein.\nLa vie reprend, un nouveau témoignage,\nD'espoir et de joie, enfin souverain.",
-    "Url Video": "",
-    "Bio": "Artiste cathartique, transformant la souffrance en beauté et l'obscurité en lumière."
+    "Description": "Impavide: regard fixe devant l'abîme; la peur devient un petale que l'on foule sans fléchir.",
+    "Bio": "Courage tranquille"
   },
   {
     "Name": "Adam_D'H7 | L'Étreinte Éphémère",
-    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Catégorie": "Poste",
-    "Description": "Dans l'éther de l'existence, nos âmes se croisent,\nUne étreinte éphémère, un instant qui s'arroge.\nL'amour, doux mirage, illusion qui se narre,\nDans les méandres du temps, notre essence s'égare.",
+    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Url Video": "vide",
-    "Bio": "Explorateur de l'âme, je sonde les mystères de l'existence et de l'amour à travers des vers empreints de mélancolie."
+    "Description": "Étreinte éphémère: deux cœurs qui se heurtent, s'embrasent, puis s'écartent — baiser qui laisse un goût d'éternité.",
+    "Bio": "Étreinte brève"
   },
   {
     "Name": "Adam_D'H7 | Les Sillons de l'Âme",
-    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Catégorie": "Poste",
-    "Description": "La vie, un labyrinthe de choix et de destins,\nOù chaque pas tracé grave des sillons profonds.\nL'amour, fragile esquif sur l'océan des craintes,\nNavigue à tâtons, bravant les écueils incertains.",
+    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Url Video": "vide",
-    "Bio": "Poète contemplatif, je m'aventure dans les dédales de l'âme humaine, en quête de sens et de résonance."
+    "Description": "Sillons: lignes creusées par les choix; chaque ride est un poème qu'on lit à voix basse.",
+    "Bio": "Sillons profonds"
   },
   {
     "Name": "Adam_D'H7 | Le Crépuscule des Sentiments",
-    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Catégorie": "Poste",
-    "Description": "Au crépuscule des sentiments, l'âme se dévoile,\nDans un ballet d'ombres et de lumières voilées.\nL'amour, braise ardente sous les cendres du temps,\nRavive la flamme, ranimant les serments.",
+    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Url Video": "vide",
-    "Bio": "Écrivain passionné, j'explore les nuances de l'amour et de l'existence à travers une plume sensible et introspective."
+    "Description": "Crépuscule sentimental: amours qui s'étirent comme des ombres, brûlant en silence leurs dernières promesses.",
+    "Bio": "Crépuscule intime"
   },
   {
     "Name": "Adam_D'H7 | Éphéméride de l'Âme",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Dans l'éther vaporeux, où l'âme s'égare,\nUn phénix renaît, défiant le tartre.\nL'ataraxie guette, au seuil des chimères,\nTandis que l'éburné se fond aux éphémères.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "vide",
-    "Bio": "Voyageur de l'âme, explorateur de l'ataraxie, je sonde l'éther pour y dénicher les phénix qui renaissent."
+    "Description": "Éphéméride: calendrier d'instants précieux; je décoche les dates comme on cueille des fleurs rares.",
+    "Bio": "Carnet d'âme"
   },
   {
     "Name": "Adam_D'H7 | Murmures Sélénites",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Sous l'égide sélénite, les songes affleurent,\nDes murmures nocturnes, les cœurs s'abreuvent.\nL'oblivion guette, dans les méandres obscurs,\nMais l'âme persiste, bravant les augures.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "vide",
-    "Bio": "Poète des nuits, je cueille les murmures sélénites pour en faire des vers qui illuminent l'obscurité."
+    "Description": "Murmures sélénites: la lune dicte des vers en langue ancienne; les cœurs les récitent comme des talismans.",
+    "Bio": "Murmure lunaire"
   },
   {
     "Name": "Adam_D'H7 | Rêveries Opalines",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Dans un jardin d'opale, où les rêveries s'épanchent,\nL'âme divague, sur des sentiers enchantés.\nL'ineffable se révèle, au détour d'un regard,\nTandis que l'éternité se mire dans l'azur.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "vide",
-    "Bio": "Artisan de rêves, je façonne des jardins d'opale où l'âme peut s'épancher en toute quiétude."
+    "Description": "Opalescence: rêves qui changent selon la lumière; on s'y plonge pour renaître en couleurs inconnues.",
+    "Bio": "Rêverie opaline"
   },
   {
     "Name": "Adam_D'H7 | L'Aube intérieure",
-    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Catégorie": "Poste",
-    "Description": "Dans le jardin secret de l'âme,\nOù les pensées éclosent comme des fleurs,\nCherche l'aube intérieure qui t'enflamme,\nEt nourris ton esprit de ses couleurs.",
+    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Url Video": "",
-    "Bio": "Explorateur de l'âme, je partage des vers pour éveiller l'aube intérieure en chacun."
+    "Description": "Aube intérieure: un souffle tiède blesse l'âme, et une évidence se lève — la paix est une rue pavée de promesses.",
+    "Bio": "Aube intime"
   },
   {
     "Name": "Adam_D'H7 | Le Silence Éloquent",
-    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Catégorie": "Poste",
-    "Description": "Le silence, parfois, est plus éloquent\nQue tous les mots que l'on peut assembler.\nIl est l'écho d'un sentiment ardent,\nUn mystère profond à déchiffrer.",
+    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Url Video": "",
-    "Bio": "Amoureux du silence, je crois qu'il détient les réponses que l'on cherche."
+    "Description": "Silence éloquent: absence parlante où les vérités s'alignent comme de petites pierres précieuses.",
+    "Bio": "Silence parlant"
   },
   {
     "Name": "Adam_D'H7 | L'Art de l'Instant",
-    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Catégorie": "Poste",
-    "Description": "Vis chaque instant comme une œuvre d'art,\nOublie hier, ne crains pas demain.\nLaisse ton cœur guider chaque départ,\nEt trouve la beauté dans chaque chemin.",
+    "Url Thumb": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
     "Url Video": "",
-    "Bio": "Artiste de l'instant, je capture la beauté éphémère de la vie à travers mes mots."
+    "Description": "Art de l'instant: chaque respiration est une toile; peins-la avec ton audace la plus vraie.",
+    "Bio": "Art du présent"
   },
   {
     "Name": "Adam_D'H7 | L'Énigme du Temps",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Dans les méandres du temps, où l'écho se perd,\nUne âme vagabonde, son chemin désert.\nDes mots sibyllins, un langage obscur,\nOù la pensée s'égare, un mystère pur.\n\nL'éphémère danse, en une valse lente,\nLes souvenirs s'évanouissent, une complainte.\nL'esprit s'éveille, en quête de sens,\nDans ce labyrinthe, où l'âme se transcende.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Un voyage introspectif à travers les complexités de l'existence, où chaque vers est une énigme à déchiffrer. Une invitation à la contemplation et à la découverte de soi."
+    "Description": "Énigme du temps: il déroule des rubans invisibles; j'essaie d'en tresser des bracelets pour retenir une heure.",
+    "Bio": "Temps mystérieux"
   },
   {
     "Name": "Nouvelle info :",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
-    "Description": "Le clan ༒ 𝗛⟁𝗩𝗢𝗫𓂀, autrefois détruit, a été reconstruit — ou plutôt, est actuellement en cours de reconstruction.",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "N'oubliez pas de partagez le web il y aura des dinguerie ici."
+    "Description": "Mur de reconstruction: voix qui résonnent et bâtissent, la renaissance claque comme une arme délicate et belle.",
+    "Bio": "Partagez l'info"
   },
   {
     "Name": "Adam_D'H7 | Éphémère",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "La beauté fugitive des instants.",
-    "Description": "Dans l'éther diaphane, l'âme exulte,\nUn bref scintillement, une étoile occulte.\nL'éphémère danse, un voile irisé,\nOù les songes s'enlacent, à jamais grisé."
+    "Description": "Éphémère: fugue d'ailes sur la peau du monde; on apprend à chérir les instants comme des bijoux fragiles.",
+    "Bio": "Beauté fugace"
   },
   {
     "Name": "Adam_D'H7 | Mélancolie",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Les nuances douces de la tristesse.",
-    "Description": "Un crépuscule d'ambre, une âme qui pleure,\nDans les méandres du temps, l'écho demeure.\nMélancolie suave, un parfum d'antan,\nOù les souvenirs s'éveillent, vibrant au vent."
+    "Description": "Mélancolie: couleur d'ambre et de pluie; elle caresse les plaies pour mieux les rendre poèmes.",
+    "Bio": "Tristesse douce"
   },
   {
     "Name": "Adam_D'H7 | Quête",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "L'aventure intérieure sans fin.",
-    "Description": "Sur les sentiers sinueux, le cœur avide,\nEn quête d'un Graal, d'une étoile livide.\nL'âme vagabonde, un désir ardent,\nDans l'immensité du monde, toujours errant."
+    "Description": "Quête: la route appelle par son nom; on y marche pour perdre et retrouver sa voix première.",
+    "Bio": "Quête intérieure"
   },
   {
     "Name": "Adam_D'H7 | Rêverie",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "L'évasion douce vers l'imaginaire.",
-    "Description": "Dans les bras de Morphée, l'esprit s'égare,\nUne rêverie éthérée, un songe rare.\nOù les chimères dansent, dans un ballet feutré,\nL'âme s'envole légère, à jamais enivrée."
+    "Description": "Rêverie: l'âme s'étire en soie; elle tisse des rivages où l'amour parle sans bruit.",
+    "Bio": "Évasion douce"
   },
   {
     "Name": "Adam_D'H7 | Solitude",
-    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Catégorie": "Poste",
+    "Url Thumb": "https://tf-stream-url.onrender.com/TF-RH0T1YKEL4/Screenshot_20251006_134508_Chrome.jpg",
     "Url Video": "",
-    "Bio": "Le silence profond de l'âme.",
-    "Description": "Dans le sanctuaire secret, l'âme se recueille,\nLa solitude profonde, un écrin qui conseille.\nUn murmure intérieur, une voix qui guide,\nDans le silence sacré, l'être se décide."
+    "Description": "Solitude: une chambre claire où j'invite mes fantômes à danser; solitude qui soigne plus qu'elle n'isole.",
+    "Bio": "Solitude réfléchie"
   }
-]
+    ]
