@@ -607,5 +607,39 @@
   </script>
 
 <script type='text/javascript' src='//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js'></script>
+  <script>
+(function(){
+  const PAYPAL_URL = 'https://www.paypal.com/ncp/payment/MCJHCJ85AC5AJ';
+
+  const logo = document.querySelector('.header .logo');
+  if(!logo){
+    console.warn('Logo pa jwenn. Asire ou gen <div class="logo"> nan header.');
+    return;
+  }
+
+  // fè logo aksesib pou klavye
+  if (!logo.hasAttribute('tabindex')) logo.setAttribute('tabindex', '0');
+  logo.setAttribute('role', 'link');
+
+  let handled = false;
+
+  function openPaypal(){
+    window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
+  }
+
+  // Sipò touch / click
+  logo.addEventListener('pointerdown', ()=>{ handled=false; });
+  logo.addEventListener('pointerup', ()=>{ handled=true; openPaypal(); });
+  logo.addEventListener('click', ()=>{ if(!handled) openPaypal(); });
+
+  // Sipò klavye (Enter / Space)
+  logo.addEventListener('keydown', (e)=>{
+    if(e.key==='Enter' || e.key===' '){
+      e.preventDefault();
+      openPaypal();
+    }
+  });
+})();
+  </script>
 </body>
   </html>
