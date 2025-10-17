@@ -16,7 +16,6 @@
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome CDN added so icons like fab fa-facebook-f afiiche san chanje UI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <style>
@@ -276,9 +275,29 @@
     });
 
     /*******************************
-     * Posts loading & click wiring
+     * Posts loading & slug routing
      *******************************/
     let allData = [];
+    window.slugMap = {}; // expose for debugging
+
+    function slugify(text){
+      return String(text||'').toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+        .replace(/[^\w\s-]/g,'').trim().replace(/\s+/g,'-');
+    }
+
+    function prepareSlugMap(){
+      window.slugMap = {};
+      allData.forEach((it, i) => {
+        const title = it.Titre || it.Name || it.Title || it['Nom'] || ('item-'+i);
+        const base = slugify(title) || ('item-'+i);
+        let slug = base;
+        let k = 1;
+        while(window.slugMap[slug]) { slug = base + '-' + k; k++; }
+        window.slugMap[slug] = { item: it, index: i, slug: slug };
+        it.__slug = slug;
+      });
+    }
 
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -288,17 +307,27 @@
       return array;
     }
 
+    // fetch index.json and referenced files (same as before) but now prepare slugs
     fetch("index.json")
       .then(r => r.json())
-      .then(files => Promise.all(files.map(f => fetch(f).then(r => r.json()))))
+      .then(files => Promise.all(files.map(f => fetch(f).then(r => r.json()).catch(()=>null))))
       .then(jsons => {
-        jsons.forEach(d => Array.isArray(d) ? allData.push(...d) : allData.push(d));
+        jsons.forEach(d => {
+          if (!d) return;
+          Array.isArray(d) ? allData.push(...d) : allData.push(d);
+        });
+        prepareSlugMap();
         shuffle(allData);
         displayExplorer(allData);
+        // After DOM created, handle path (open post if /slug)
+        handleInitialPath();
       }).catch(err => {
         console.error("Erreur chargement JSON:", err);
         const ex = document.getElementById("explorerView");
         ex.innerHTML = '<div style="color:#999;padding:20px;text-align:center">Pa kapab chaje kontni (index.json).</div>';
+        // still try to prepare slug map from whatever is in allData (maybe uploads later)
+        prepareSlugMap();
+        handleInitialPath();
       });
 
     function filterSearch(val){
@@ -317,11 +346,14 @@
     function displayExplorer(data){
       const ex = document.getElementById("explorerView");
       ex.innerHTML = "";
-      data.forEach((post) => {
+      (data || allData).forEach((post) => {
         if (((post.Catégorie||post.Categorie||"" )).toString().toLowerCase() !== "poste") return;
 
         const card = document.createElement("div");
         card.className = "post-card";
+
+        // attach slug as data attribute so we can find it later from routing
+        if(post.__slug) card.dataset.slug = post.__slug;
 
         const ptext = document.createElement("div");
         ptext.className = "post-text";
@@ -360,6 +392,7 @@
           const src = post.Previously || post.video || post["Url Video"] || post["Url"] || post.image || post.media || "";
           adCallback = () => playMedia(src, thumbCon);
           showAdAndLoadImmediate();
+          // NOTE: clicking a post DOES NOT change the URL (by design per your request)
         });
 
         ex.appendChild(card);
@@ -489,17 +522,63 @@
       if (!exists) c.appendChild(s);
     }
 
-    window.getAdLogs = function() {
-      try { return JSON.parse(localStorage.getItem('adLogs') || '[]'); } catch(e) { return []; }
-    };
-  </script>
+    /***********************
+     * PATH / SLUG HANDLING
+     *
+     * Behavior preserved:
+     * - Clicking thumbs DOES NOT change URL
+     * - Visiting /<slug> directly will open that post (show ad + play)
+     ***********************/
+    function handlePath(pathname){
+      // remove leading slashes
+      const p = String(pathname || location.pathname || '').replace(/^\/+/, '');
+      if(!p || p.toLowerCase() === 'acceuil' || p.toLowerCase() === 'accueil' || p.toLowerCase() === 'index.html'){
+        // default view: explorer
+        // ensure explorer is rendered (displayExplorer already called on load, but re-render to be safe)
+        displayExplorer(allData);
+        return;
+      }
+      const slug = decodeURIComponent(p);
+      const info = window.slugMap[slug] || window.slugMap[slug.toLowerCase()];
+      if(info && info.item){
+        // try to find the post card in DOM and trigger same behavior as clicking thumb
+        // find card by data-slug
+        const card = document.querySelector(`[data-slug="${info.slug}"]`);
+        if(card){
+          // find thumb container inside this card
+          const thumbCon = card.querySelector('.post-thumb-container');
+          const post = info.item;
+          const src = post.Previously || post.video || post["Url Video"] || post["Url"] || post.image || post.media || "";
+          // assign adCallback to play media in that thumb container after ad closes
+          adCallback = () => playMedia(src, thumbCon);
+          // show ad overlay and then load media
+          showAdAndLoadImmediate();
+          // scroll into view so user sees the card
+          try { card.scrollIntoView({behavior: 'smooth', block: 'center'}); } catch(e){}
+        } else {
+          // If no DOM node found (maybe we filtered view), re-render explorer then try again after short delay
+          displayExplorer(allData);
+          setTimeout(()=>{ handlePath(pathname); }, 220);
+        }
+      } else {
+        // slug not found: show normal explorer
+        displayExplorer(allData);
+      }
+    }
 
-  <!-- SERVICE WORKER REGISTRATION + UPDATE BANNER -->
-  <script>
+    function handleInitialPath(){
+      // call once after initial render
+      handlePath(location.pathname);
+    }
+
+    // support browser back/forward
+    window.addEventListener('popstate', ()=> handlePath(location.pathname));
+
+    /*******************************
+     * SERVICE WORKER REGISTRATION + UPDATE BANNER
+     *******************************/
     // store registration globally so banner can use it
     window._swReg = null;
-
-    // create update banner UI (if needed)
     function showUpdateBanner() {
       if (document.getElementById('sw-update-banner')) return;
       const banner = document.createElement('div');
@@ -514,11 +593,9 @@
 
       document.getElementById('sw-update-btn').addEventListener('click', () => {
         if (!window._swReg) return location.reload();
-        // si gen waiting SW, mande l skipWaiting
         if (window._swReg.waiting) {
           window._swReg.waiting.postMessage({ type: 'SKIP_WAITING' });
         }
-        // fallback reload apre yon ti tan
         setTimeout(() => location.reload(), 1500);
       });
 
@@ -528,11 +605,8 @@
       });
     }
 
-    // reload when new SW takes control
     navigator.serviceWorker && navigator.serviceWorker.addEventListener('controllerchange', () => {
-      console.log('New service worker has taken control — reloading');
       try {
-        // avoid infinite loop: only reload once
         if (!window.__sw_reload_attempted) {
           window.__sw_reload_attempted = true;
           location.reload();
@@ -541,30 +615,16 @@
     });
 
     if ('serviceWorker' in navigator) {
-      // register with version param to bypass server cache for service-worker.js
-      // change v=2 to v=3 next time you update
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js?v=2')
           .then(reg => {
-            console.log('SW registered:', reg.scope);
             window._swReg = reg;
-
-            // if there's already a waiting SW (update installed previously) show banner
-            if (reg.waiting) {
-              showUpdateBanner();
-            }
-
-            // observe updates
+            if (reg.waiting) showUpdateBanner();
             reg.onupdatefound = () => {
               const newSW = reg.installing;
               newSW.addEventListener('statechange', () => {
                 if (newSW.state === 'installed') {
-                  if (navigator.serviceWorker.controller) {
-                    // existing page controlled by older SW => update ready
-                    showUpdateBanner();
-                  } else {
-                    console.log('Service worker installed for first time (content cached).');
-                  }
+                  if (navigator.serviceWorker.controller) showUpdateBanner();
                 }
               });
             };
@@ -572,30 +632,20 @@
           .catch(err => console.warn('SW register failed:', err));
       });
     }
-  </script>
 
-  <!-- Prevent pinch-zoom / gesturestart / double-tap zoom (minimal, preserves vertical scrolling) -->
-  <script>
-    // iOS Safari: prevent gesturestart (pinch)
-    document.addEventListener('gesturestart', function(e) {
-      e.preventDefault();
-    });
-
-    // Block scale changes during touchmove (for browsers that set e.scale)
+    /*******************************
+     * Prevent pinch-zoom / double-tap zoom
+     *******************************/
+    document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
     document.addEventListener('touchmove', function (e) {
-      if (e.scale && e.scale !== 1) {
-        e.preventDefault();
-      }
+      if (e.scale && e.scale !== 1) e.preventDefault();
     }, { passive: false });
 
-    // Prevent double-tap to zoom (simple heuristic)
     (function() {
       let lastTouch = 0;
       document.addEventListener('touchend', function(e) {
         const now = Date.now();
         if (now - lastTouch <= 300) {
-          // second tap within 300ms -> prevent default to avoid zoom
-          // but avoid blocking interaction on form fields
           const tag = (e.target && e.target.tagName) || '';
           if (['INPUT','TEXTAREA','SELECT'].indexOf(tag) === -1) {
             e.preventDefault();
@@ -604,42 +654,40 @@
         lastTouch = now;
       }, { passive: false });
     })();
+
   </script>
 
-<script type='text/javascript' src='//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js'></script>
+  <script type='text/javascript' src='//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js'></script>
   <script>
-(function(){
-  const PAYPAL_URL = 'https://www.paypal.com/ncp/payment/MCJHCJ85AC5AJ';
+    (function(){
+      const PAYPAL_URL = 'https://www.paypal.com/ncp/payment/MCJHCJ85AC5AJ';
 
-  const logo = document.querySelector('.header .logo');
-  if(!logo){
-    console.warn('Logo pa jwenn. Asire ou gen <div class="logo"> nan header.');
-    return;
-  }
+      const logo = document.querySelector('.header .logo');
+      if(!logo){
+        console.warn('Logo pa jwenn. Asire ou gen <div class="logo"> nan header.');
+        return;
+      }
 
-  // fè logo aksesib pou klavye
-  if (!logo.hasAttribute('tabindex')) logo.setAttribute('tabindex', '0');
-  logo.setAttribute('role', 'link');
+      if (!logo.hasAttribute('tabindex')) logo.setAttribute('tabindex', '0');
+      logo.setAttribute('role', 'link');
 
-  let handled = false;
+      let handled = false;
 
-  function openPaypal(){
-    window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
-  }
+      function openPaypal(){
+        window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
+      }
 
-  // Sipò touch / click
-  logo.addEventListener('pointerdown', ()=>{ handled=false; });
-  logo.addEventListener('pointerup', ()=>{ handled=true; openPaypal(); });
-  logo.addEventListener('click', ()=>{ if(!handled) openPaypal(); });
+      logo.addEventListener('pointerdown', ()=>{ handled=false; });
+      logo.addEventListener('pointerup', ()=>{ handled=true; openPaypal(); });
+      logo.addEventListener('click', ()=>{ if(!handled) openPaypal(); });
 
-  // Sipò klavye (Enter / Space)
-  logo.addEventListener('keydown', (e)=>{
-    if(e.key==='Enter' || e.key===' '){
-      e.preventDefault();
-      openPaypal();
-    }
-  });
-})();
+      logo.addEventListener('keydown', (e)=>{
+        if(e.key==='Enter' || e.key===' '){
+          e.preventDefault();
+          openPaypal();
+        }
+      });
+    })();
   </script>
 </body>
-  </html>
+    </html>
