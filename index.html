@@ -641,5 +641,59 @@
   });
 })();
   </script>
+      <!-- START: only allow copying the .post-name -->
+<style>
+  /* Disable text selection globally */
+  body, body * {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+
+  /* Re-enable selection only for post-name and form inputs */
+  .post-name,
+  input, textarea {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+    -ms-user-select: text !important;
+    user-select: text !important;
+  }
+
+  /* Ensure .post-name still styles normally */
+  .post-name { cursor:text; }
+</style>
+
+<script>
+  // Intercept copy: always copy the .post-name text of the closest .post-card
+  document.addEventListener('copy', function(e) {
+    try {
+      const sel = window.getSelection();
+      let node = sel && (sel.anchorNode || sel.focusNode);
+      // if text node, get parent element
+      if (node && node.nodeType === 3) node = node.parentElement;
+
+      // find containing post-card (if any)
+      const card = node && node.closest ? node.closest('.post-card') : null;
+      let nameEl = card ? card.querySelector('.post-name') : null;
+
+      // fallback: if no card found, try to use any visible .post-name
+      if (!nameEl) nameEl = document.querySelector('.post-name');
+
+      const text = nameEl ? nameEl.textContent.trim() : '';
+
+      // override clipboard content
+      e.preventDefault();
+      if (e.clipboardData) {
+        e.clipboardData.setData('text/plain', text);
+      } else if (window.clipboardData) {
+        window.clipboardData.setData('Text', text);
+      }
+    } catch (err) {
+      try { e.preventDefault(); } catch(e){}
+    }
+  }, false);
+</script>
+<!-- END: only allow copying the .post-name -->
 </body>
   </html>
