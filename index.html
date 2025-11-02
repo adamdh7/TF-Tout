@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="ht">
+<!DOCTYPE html><html lang="ht">
 <head>
   <meta charset="utf-8" />
   <!-- META VIEWPORT (minimal change to disable pinch-zoom) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="theme-color" content="#000000" />
-  <title>Adam_D'H7</title>
-
-  <link rel="manifest" href="manifest.json" />
+  <title>Adam_D'H7</title>  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#000000" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Adam_D'H7" />
   <link rel="apple-touch-icon" href="https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome CDN added so icons like fab fa-facebook-f afiiche san chanje UI -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />  <!-- Font Awesome CDN added so icons like fab fa-facebook-f afiiche san chanje UI -->  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />  <style>
     :root{
       --card-max-width:920px;
       --card-min-height:80px;
@@ -130,27 +122,19 @@
       height: 0;
     }
 
-  </style>
-</head>
+  </style></head>
 <body>
   <div class="header">
     <div class="logo">Adam_D'H7</div>
     <div class="search-container">
       <input id="searchBox" class="search-box" placeholder="Rechèch..." oninput="filterSearch(this.value)">
     </div>
-  </div>
-
-  <div id="explorerView" role="main" aria-live="polite"></div>
-
-  <!-- Pré-roll overlay -->
-  <div id="adOverlay" class="ad-overlay" aria-hidden="true" role="dialog" aria-label="Publicité">
+  </div>  <div id="explorerView" role="main" aria-live="polite"></div>  <!-- Pré-roll overlay -->  <div id="adOverlay" class="ad-overlay" aria-hidden="true" role="dialog" aria-label="Publicité">
     <div class="ad-container" role="document" aria-label="Contenu publicité">
       <iframe id="prerollFrame" src="about:blank" allow="autoplay; fullscreen" title="Pré-roll Ad"></iframe>
       <button id="skipBtn" class="skip-btn" onclick="closeAd()" aria-label="Ignorer la publicité">Ignorer la pub</button>
     </div>
-  </div>
-
-  <script>
+  </div>  <script>
     /*******************************
      * CONFIG
      *******************************/
@@ -198,22 +182,76 @@
     let skipTimeout = null;
     let adCallback = null;
 
-    function showAdAndLoadImmediate() {
+    // popup-first ad flow: try to open real browser tab/window (user sees Chrome UI)
+    function tryOpenAdInBrowser(url) {
+      try {
+        const features = 'noopener,noreferrer,toolbar=yes,location=yes,menubar=no,status=yes,scrollbars=yes,resizable=yes,width=960,height=720';
+        const newWin = window.open(url, '_blank', features);
+        if (newWin) {
+          try { newWin.focus(); } catch(e){}
+          logAdEvent('popup_opened', { url });
+          return { opened: true, win: newWin };
+        }
+        return { opened: false };
+      } catch (e) {
+        return { opened: false };
+      }
+    }
+
+    // best-effort impression ping
+    function sendImpressionPing(url) {
+      try {
+        const img = new Image();
+        img.src = url + (url.includes('?') ? '&' : '?') + '_impression=' + Date.now();
+        img.style.display = 'none';
+        document.body.appendChild(img);
+        setTimeout(()=>{ try{ img.remove(); }catch(e){} }, 5000);
+        logAdEvent('impression_ping_sent', { url });
+      } catch(e){ logAdEvent('impression_ping_failed', { err: e && e.message }); }
+    }
+
+    function showStickyAdSlot(url) {
+      // optional small sticky ad slot implementation
+      try {
+        let sticky = document.getElementById('__sticky_ad_slot');
+        if (!sticky) {
+          sticky = document.createElement('div');
+          sticky.id = '__sticky_ad_slot';
+          sticky.style.position = 'fixed';
+          sticky.style.bottom = '8px';
+          sticky.style.right = '8px';
+          sticky.style.width = '120px';
+          sticky.style.height = '70px';
+          sticky.style.zIndex = '99999';
+          sticky.style.borderRadius = '8px';
+          sticky.style.boxShadow = '0 6px 18px rgba(0,0,0,0.5)';
+          sticky.style.overflow = 'hidden';
+          sticky.style.display = 'none';
+          document.body.appendChild(sticky);
+        }
+        sticky.innerHTML = '';
+        const ifr = document.createElement('iframe');
+        ifr.src = url;
+        ifr.style.border = '0';
+        ifr.width = '100%';
+        ifr.height = '100%';
+        ifr.loading = 'lazy';
+        sticky.appendChild(ifr);
+        sticky.style.display = 'block';
+        setTimeout(()=>{ try{ sticky.style.display='none'; }catch(e){} }, 12000);
+      } catch(e){}
+    }
+
+    function showAdOverlayInPage(rawUrl) {
+      const url = getLoadUrl(rawUrl);
       overlay.style.display = 'flex';
       overlay.setAttribute('aria-hidden','false');
       skipBtn.style.display = 'none';
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
 
-      const rawUrl = AD_REDIRECT_URL;
-      const url = getLoadUrl(rawUrl);
-
-      const prevNote = document.getElementById('ad-block-note');
-      if (prevNote && prevNote.parentNode) prevNote.parentNode.removeChild(prevNote);
-
-      let loaded = false;
       const iframe = prerollFrame;
-
+      let loaded = false;
       try { iframe.onload = null; } catch(e){}
       iframe.onload = function() {
         loaded = true;
@@ -254,6 +292,25 @@
         }
         skipBtn.style.display = 'block';
       }, FAIL_MS);
+
+      sendImpressionPing(url);
+    }
+
+    // Always open popup (if possible) AND display the small overlay — user requested both
+    function showAdPreferBrowserThenOverlay(adUrl) {
+      const res = tryOpenAdInBrowser(adUrl);
+      // always show overlay as "petit fond"
+      showAdOverlayInPage(adUrl);
+      // always ping impressions and show sticky slot if popup opened
+      sendImpressionPing(adUrl);
+      if (res.opened) {
+        logAdEvent('popup_opened_and_overlay_shown', { url: adUrl });
+        showStickyAdSlot(adUrl);
+        // trigger adCallback shortly after so the in-page media may start while popup is open
+        setTimeout(()=>{ if (typeof adCallback === 'function') { try{ adCallback(); }catch(e){} adCallback = null; } }, 400);
+      } else {
+        logAdEvent('overlay_shown_popup_failed', { url: adUrl });
+      }
     }
 
     function closeAd() {
@@ -359,7 +416,7 @@
           ev.stopPropagation();
           const src = post.Previously || post.video || post["Url Video"] || post["Url"] || post.image || post.media || "";
           adCallback = () => playMedia(src, thumbCon);
-          showAdAndLoadImmediate();
+          showAdPreferBrowserThenOverlay(AD_REDIRECT_URL);
         });
 
         ex.appendChild(card);
@@ -492,14 +549,8 @@
     window.getAdLogs = function() {
       try { return JSON.parse(localStorage.getItem('adLogs') || '[]'); } catch(e) { return []; }
     };
-  </script>
-
-  <!-- SERVICE WORKER REGISTRATION + UPDATE BANNER -->
-  <script>
-    // store registration globally so banner can use it
+  </script>  <!-- SERVICE WORKER REGISTRATION + UPDATE BANNER -->  <script>
     window._swReg = null;
-
-    // create update banner UI (if needed)
     function showUpdateBanner() {
       if (document.getElementById('sw-update-banner')) return;
       const banner = document.createElement('div');
@@ -514,11 +565,9 @@
 
       document.getElementById('sw-update-btn').addEventListener('click', () => {
         if (!window._swReg) return location.reload();
-        // si gen waiting SW, mande l skipWaiting
         if (window._swReg.waiting) {
           window._swReg.waiting.postMessage({ type: 'SKIP_WAITING' });
         }
-        // fallback reload apre yon ti tan
         setTimeout(() => location.reload(), 1500);
       });
 
@@ -528,11 +577,8 @@
       });
     }
 
-    // reload when new SW takes control
     navigator.serviceWorker && navigator.serviceWorker.addEventListener('controllerchange', () => {
-      console.log('New service worker has taken control — reloading');
       try {
-        // avoid infinite loop: only reload once
         if (!window.__sw_reload_attempted) {
           window.__sw_reload_attempted = true;
           location.reload();
@@ -541,29 +587,19 @@
     });
 
     if ('serviceWorker' in navigator) {
-      // register with version param to bypass server cache for service-worker.js
-      // change v=2 to v=3 next time you update
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js?v=2')
           .then(reg => {
-            console.log('SW registered:', reg.scope);
             window._swReg = reg;
-
-            // if there's already a waiting SW (update installed previously) show banner
             if (reg.waiting) {
               showUpdateBanner();
             }
-
-            // observe updates
             reg.onupdatefound = () => {
               const newSW = reg.installing;
               newSW.addEventListener('statechange', () => {
                 if (newSW.state === 'installed') {
                   if (navigator.serviceWorker.controller) {
-                    // existing page controlled by older SW => update ready
                     showUpdateBanner();
-                  } else {
-                    console.log('Service worker installed for first time (content cached).');
                   }
                 }
               });
@@ -572,30 +608,17 @@
           .catch(err => console.warn('SW register failed:', err));
       });
     }
-  </script>
-
-  <!-- Prevent pinch-zoom / gesturestart / double-tap zoom (minimal, preserves vertical scrolling) -->
-  <script>
-    // iOS Safari: prevent gesturestart (pinch)
-    document.addEventListener('gesturestart', function(e) {
-      e.preventDefault();
-    });
-
-    // Block scale changes during touchmove (for browsers that set e.scale)
+  </script>  <!-- Prevent pinch-zoom / gesturestart / double-tap zoom (minimal, preserves vertical scrolling) -->  <script>
+    document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
     document.addEventListener('touchmove', function (e) {
-      if (e.scale && e.scale !== 1) {
-        e.preventDefault();
-      }
+      if (e.scale && e.scale !== 1) { e.preventDefault(); }
     }, { passive: false });
 
-    // Prevent double-tap to zoom (simple heuristic)
     (function() {
       let lastTouch = 0;
       document.addEventListener('touchend', function(e) {
         const now = Date.now();
         if (now - lastTouch <= 300) {
-          // second tap within 300ms -> prevent default to avoid zoom
-          // but avoid blocking interaction on form fields
           const tag = (e.target && e.target.tagName) || '';
           if (['INPUT','TEXTAREA','SELECT'].indexOf(tag) === -1) {
             e.preventDefault();
@@ -604,10 +627,7 @@
         lastTouch = now;
       }, { passive: false });
     })();
-  </script>
-
-<script type='text/javascript' src='//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js'></script>
-  <script>
+  </script><script type='text/javascript' src='//pantherinvincible.com/1d/e3/21/1de321cf7681c76a64e7cdb2ab95a037.js'></script>  <script>
 (function(){
   const PAYPAL_URL = 'https://www.paypal.com/ncp/payment/MCJHCJ85AC5AJ';
 
@@ -617,7 +637,6 @@
     return;
   }
 
-  // fè logo aksesib pou klavye
   if (!logo.hasAttribute('tabindex')) logo.setAttribute('tabindex', '0');
   logo.setAttribute('role', 'link');
 
@@ -627,12 +646,10 @@
     window.open(PAYPAL_URL, '_blank', 'noopener,noreferrer');
   }
 
-  // Sipò touch / click
   logo.addEventListener('pointerdown', ()=>{ handled=false; });
   logo.addEventListener('pointerup', ()=>{ handled=true; openPaypal(); });
   logo.addEventListener('click', ()=>{ if(!handled) openPaypal(); });
 
-  // Sipò klavye (Enter / Space)
   logo.addEventListener('keydown', (e)=>{
     if(e.key==='Enter' || e.key===' '){
       e.preventDefault();
@@ -640,10 +657,7 @@
     }
   });
 })();
-  </script>
-<!-- START: only allow copying the .post-name -->
-<style>
-  /* Disable text selection globally */
+  </script><!-- START: only allow copying the .post-name --><style>
   body, body * {
     -webkit-user-select: none !important;
     -moz-user-select: none !important;
@@ -651,7 +665,6 @@
     user-select: none !important;
   }
 
-  /* Re-enable selection only for post-name and form inputs */
   .post-name,
   input, textarea {
     -webkit-user-select: text !important;
@@ -660,29 +673,17 @@
     user-select: text !important;
   }
 
-  /* Ensure .post-name still styles normally */
   .post-name { cursor:text; }
-</style>
-
-<script>
-  // Intercept copy: always copy the .post-name text of the closest .post-card
+</style><script>
   document.addEventListener('copy', function(e) {
     try {
       const sel = window.getSelection();
       let node = sel && (sel.anchorNode || sel.focusNode);
-      // if text node, get parent element
       if (node && node.nodeType === 3) node = node.parentElement;
-
-      // find containing post-card (if any)
       const card = node && node.closest ? node.closest('.post-card') : null;
       let nameEl = card ? card.querySelector('.post-name') : null;
-
-      // fallback: if no card found, try to use any visible .post-name
       if (!nameEl) nameEl = document.querySelector('.post-name');
-
       const text = nameEl ? nameEl.textContent.trim() : '';
-
-      // override clipboard content
       e.preventDefault();
       if (e.clipboardData) {
         e.clipboardData.setData('text/plain', text);
@@ -693,7 +694,5 @@
       try { e.preventDefault(); } catch(e){}
     }
   }, false);
-</script>
-<!-- END: only allow copying the .post-name -->
-</body>
+</script> </body>
   </html>
