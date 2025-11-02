@@ -1,5 +1,6 @@
+// service-worker.js (meté nan /service-worker.js sou repo a)
+// Version corrigée : n'intercepte PAS les requêtes publicitaires courantes (Adsterra, trackers, popups, etc.)
 
-// service-worker.js (mete li nan /service-worker.js sou repo a)
 const CACHE_NAME = 'adamdh7-shell-v2';
 const IMAGE_CACHE = 'adamdh7-thumbs-v2';
 const JSON_CACHE = 'adamdh7-json-v2';
@@ -17,23 +18,71 @@ const PRECACHE_URLS = [
   PLACEHOLDER
 ];
 
+// Domains / fragments à **NE PAS** intercepter ni mettre en cache (pubs / trackers)
+const AVOID_CACHE_DOMAINS = [
+  'adsterra.com',
+  'ads.adsterra.com',
+  'pantherinvincible.com',
+  'adserver.',
+  'doubleclick.net',
+  'googleads.g.doubleclick.net',
+  'googlesyndication.com',
+  'googleadservices.com',
+  'adservice.google.com',
+  'adsystem.com',
+  'adroll.com',
+  'adsafeprotected.com',
+  'openx.net',
+  'rubiconproject.com',
+  'adnxs.com',
+  'amazon-adsystem.com',
+  'yieldlab.net',
+  'adaplex.net',
+  '/ad-',
+  '/ads/',
+  '/ads?',
+  'ad_content'
+];
+
+// helper pou normalize (fè wout absoli si nesesè)
+function normalizeUrl(u){
+  try {
+    const url = new URL(u, self.location.origin);
+    return url.href;
+  } catch(e) {
+    return u;
+  }
+}
+
+// utilitaire : teste si URL doit être bypassée
+function shouldBypass(url){
+  if(!url) return false;
+  const s = url.toString().toLowerCase();
+  for(const d of AVOID_CACHE_DOMAINS){
+    if(d && s.includes(d)) return true;
+  }
+  return false;
+}
+
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
 
-    // Precache core assets — use Promise.allSettled pou pa echwe tout enstalasyon si youn pa disponib
+    // Precache core assets — skip any URL qui matche les domaines pub (par sécurité)
     await Promise.allSettled(
-      PRECACHE_URLS.map(u =>
-        fetch(u, {cache: 'no-cache'}).then(res => {
-          if (!res.ok && res.type !== 'opaque') throw new Error(`${u} -> ${res.status}`);
-          return cache.put(u, res.clone());
-        }).catch(err => {
-          console.warn('Precache failed for', u, err);
-        })
-      )
+      PRECACHE_URLS
+        .filter(u => !shouldBypass(u))
+        .map(u =>
+          fetch(u, {cache: 'no-cache'}).then(res => {
+            if (!res.ok && res.type !== 'opaque') throw new Error(`${u} -> ${res.status}`);
+            return cache.put(u, res.clone());
+          }).catch(err => {
+            console.warn('Precache failed for', u, err);
+          })
+        )
     );
 
-    // Eseye chaje index.json epi cache thumbs / json referans
+    // Eseye chaje index.json epi cache thumbs / json referans (sauf assets pub)
     try {
       const resp = await fetch('/index.json', {cache: 'no-cache'});
       if (resp && (resp.ok || resp.type === 'opaque')) {
@@ -47,21 +96,24 @@ self.addEventListener('install', event => {
           index.forEach(it => {
             if (it['Url Thumb']) urls.add(normalizeUrl(it['Url Thumb']));
             if (it.video) urls.add(normalizeUrl(it.video));
-            // ajoute lòt kle si gen
+            if (it['Url']) urls.add(normalizeUrl(it['Url']));
+            if (it.image) urls.add(normalizeUrl(it.image));
           });
         } else {
           Object.values(index).forEach(v => {
-            if (typeof v === 'string' && (v.endsWith('.json') || /\.(jpg|jpeg|png|webp)$/.test(v))) urls.add(normalizeUrl(v));
+            if (typeof v === 'string' && (v.endsWith('.json') || /\.(jpg|jpeg|png|webp|mp4|webm)$/.test(v))) urls.add(normalizeUrl(v));
           });
         }
 
+        // Precache discovered urls but skip any ad/tracker domain
         await Promise.allSettled(Array.from(urls).map(u => {
-          // chwazi ki cache pou mete li
+          if (shouldBypass(u)) return Promise.resolve();
+          // json -> jsonCache ; images -> imageCache ; videos not pre-cached here
           if (u.endsWith('.json')) {
-            return fetch(u).then(r => { if(r.ok||r.type==='opaque') return jsonCache.put(u, r.clone()); }).catch(()=>{});
+            return fetch(u).then(r => { if(r && (r.ok||r.type==='opaque')) return jsonCache.put(u, r.clone()); }).catch(()=>{});
           }
           if (/\.(jpg|jpeg|png|webp)$/.test(u)) {
-            return fetch(u).then(r => { if(r.ok||r.type==='opaque') return imageCache.put(u, r.clone()); }).catch(()=>{});
+            return fetch(u).then(r => { if(r && (r.ok||r.type==='opaque')) return imageCache.put(u, r.clone()); }).catch(()=>{});
           }
           return Promise.resolve();
         }));
@@ -88,20 +140,30 @@ self.addEventListener('activate', evt => {
   })());
 });
 
-// helper pou normalize (fè wout absoli si nesesè)
-function normalizeUrl(u){
-  try {
-    const url = new URL(u, self.location.origin);
-    return url.pathname + url.search;
-  } catch(e) {
-    return u;
-  }
-}
-
 self.addEventListener('fetch', event => {
   const req = event.request;
 
+  // seulement GET
   if (req.method !== 'GET') return;
+
+  // bypass total pour les domaines pubs / trackers : laisser navigateur faire le réseau direct
+  try {
+    if (shouldBypass(req.url)) {
+      event.respondWith(
+        fetch(req).catch(err => {
+          // en cas d'échec réseau, on essaie de renvoyer offline page pour les navigations uniquement
+          if (req.mode === 'navigate' || (req.headers.get('accept')||'').includes('text/html')) {
+            return caches.match(OFFLINE_URL);
+          }
+          // sinon fallback vers nothing (reject)
+          return new Response(null, { status: 504, statusText: 'Gateway Timeout' });
+        })
+      );
+      return;
+    }
+  } catch (e) {
+    // si erreur dans shouldBypass, ne pas bloquer : continuer stratégie normale
+  }
 
   // navigation (html): network-first fallback to offline page
   if (req.mode === 'navigate' || (req.headers.get('accept')||'').includes('text/html')) {
@@ -132,12 +194,14 @@ async function cacheFirst(request) {
   if (cached) return cached;
   try {
     const resp = await fetch(request);
-    if (resp && (resp.ok || resp.type === 'opaque')) {
-      cache.put(request, resp.clone()).catch(()=>{});
+    // Ne pas stocker les réponses opaques provenant de domaines externes sensibles (ex: pubs)
+    const url = (request.url || '').toLowerCase();
+    if (resp && (resp.ok || resp.type === 'opaque') && !shouldBypass(url)) {
+      try { cache.put(request, resp.clone()).catch(()=>{}); } catch(e){}
     }
     return resp;
   } catch (e) {
-    // fallback for navigation already géré, pou lòt asset retounen cached sinon fail
+    // fallback pour navigation
     return caches.match(OFFLINE_URL);
   }
 }
@@ -146,8 +210,9 @@ async function networkFirst(request, cacheName = CACHE_NAME) {
   const cache = await caches.open(cacheName);
   try {
     const response = await fetch(request);
-    if (response && (response.ok || response.type === 'opaque')) {
-      cache.put(request, response.clone()).catch(()=>{});
+    // n'enregistre pas dans le cache si c'est une URL pub/tracker
+    if (response && (response.ok || response.type === 'opaque') && !shouldBypass(request.url)) {
+      try { cache.put(request, response.clone()).catch(()=>{}); } catch(e){}
     }
     return response;
   } catch (err) {
@@ -162,13 +227,15 @@ async function cacheFirstWithFallback(request, cacheName, fallbackUrl) {
   if (cached) return cached;
   try {
     const resp = await fetch(request);
-    if (resp && (resp.ok || resp.type === 'opaque')) {
+    if (resp && (resp.ok || resp.type === 'opaque') && !shouldBypass(request.url)) {
       await cache.put(request, resp.clone());
       return resp;
     }
+    // si c'est une réponse opaque mais on ne veut pas la stocker, on la retourne quand même
+    if (resp) return resp;
   } catch (e) {
     // ignore
   }
   // si tout echwe, retounen placeholder soti nan cache global la
   return caches.match(fallbackUrl);
-                           }
+      }
