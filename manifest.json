@@ -1,62 +1,36 @@
 {
+  "id": "https://adamdh7.pages.dev",
+  "dir": "ltr",
+  "lang": "fr",
   "name": "Adam_D'H7",
   "short_name": "Adam_D'H7",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#000000",
+  "display_override": ["fullscreen", "standalone", "minimal-ui"],
+  "orientation": "portrait",
   "theme_color": "#000000",
+  "background_color": "#000000",
+  "description": "TF-Stream — Plateforme pour regarder séries, anime et films.",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
-    {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
+      "src": "https://adamdh7.pages.dev/asset/192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
+      "src": "https://adamdh7.pages.dev/asset/512.png",
       "sizes": "512x512",
-      "type": "image/jpg"
-    },
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
     {
-      "src": "https://res.cloudinary.com/dckwrqrur/image/upload/v1757205404/tf-stream-url/Screenshot_20250906_202106_Chrome_go9vhu.png",
-      "sizes": "512x512",
-      "type": "image/jpg",
-      "purpose": "maskable"
+      "src": "https://adamdh7.pages.dev/asset/screen.png",
+      "sizes": "1536x1024",
+      "type": "image/png"
     }
   ]
 }
