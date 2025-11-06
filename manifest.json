@@ -29,7 +29,7 @@
   "screenshots": [
     {
       "src": "https://adamdh7.pages.dev/asset/screen.png",
-      "sizes": "1536x1024",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
