@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "dev.pages.adamdh7.twa",
+        "sha256_cert_fingerprints": ["34:22:5D:BC:C2:B1:3A:D8:5C:FD:77:85:79:E0:C0:7D:71:22:43:C1:EA:ED:63:C2:04:A3:3E:F7:D7:0C:D1:3A"]
+      }
+    }]
